@@ -37,7 +37,7 @@ namespace DungeonRunner
             Console.WriteLine("Press enter to finish your Character");
             //Write to Character Object
             //Hallo
-
+            
         }
 
         public void ShowSaveMenu()//Character
