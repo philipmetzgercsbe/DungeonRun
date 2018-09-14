@@ -2,6 +2,8 @@ namespace DungeonRunner
 {
     public class Character
     {
+      
+
         //List<CharClass> class = List<CharClass>;
         /*private List<T> class
         private List<T> Item*/
@@ -13,10 +15,12 @@ namespace DungeonRunner
         private int CharAtRoom;
         private bool Dead;
         
-        public Character(string name, int age)
+        public Character(string name, int age, int lp, int mp)
         {
             Name = name;
             Age = age;
+            LP = lp;
+            MP = mp;
         }
 
         public string Name1
