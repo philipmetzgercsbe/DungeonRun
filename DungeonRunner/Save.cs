@@ -14,6 +14,7 @@ namespace DungeonRunner
         {
             StreamWriter FileWriter = new StreamWriter("test.txt");
             FileWriter.WriteLine(Person1.Length + 1);
+            Console.WriteLine("test");
             
             for (int i = 0; i < Person1.Length; i++)
             {
