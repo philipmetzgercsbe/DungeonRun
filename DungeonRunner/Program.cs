@@ -11,6 +11,20 @@ namespace DungeonRunner
         static void Main(string[] args)
         {
             Menu start = new Menu();
+
+
+        }
+
+        static void EndGame()
+        {
+            /*if () Check if Character is alive
+            {
+                    End Game 
+                    Delete Character Object
+                    call Restart Game 
+                    which calls start.MainMenu();
+
+            } */
         }
     }
 }
