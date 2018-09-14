@@ -6,7 +6,7 @@ namespace DungeonRunner
     {
         private List<Item> items = new List<Item>();
         private int SellPrice;
-        private string PotionName;
+        private List<string> PotionName;
 
         public List<Item> Items
         {
@@ -20,13 +20,13 @@ namespace DungeonRunner
             set => SellPrice = value;
         }
 
-        public string PotionName1
+        public List<string> PotionName1
         {
             get => PotionName;
             set => PotionName = value;
         }
 
-        public Trader(int sellPrice, string potionName)
+        public Trader(int sellPrice, List<string> potionName)
         {
             SellPrice = sellPrice;
             PotionName = potionName;
