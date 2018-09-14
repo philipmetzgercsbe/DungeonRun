@@ -11,6 +11,7 @@ namespace DungeonRunner
         public void ShowMainMenu()
         {
             Console.WriteLine("Welcome to Dungeon Runner");
+            Console.WriteLine("Press [1] to Create a Character\n Press [2] to save a created Character\n Press [3] to load a saved Character\n Press [4] to start Dungeon Runner");
             int input = Int32.Parse(Console.ReadLine());
             switch (input)
             {
