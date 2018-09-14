@@ -2,7 +2,11 @@
 A C# Console Application in which you defeat Monsters and gain more strength. 
 
 
-**#Requierements**: .NET Core
+**#Requierements**: 
+
+               .NET Core
+               
+               
                Windows 7 or higher
                
                
@@ -11,12 +15,14 @@ A C# Console Application in which you defeat Monsters and gain more strength.
              
              
 **#About**:
+
 A school Project in which we created a kind of Dungeon Run.
 
 
 It goes indefintly and is WIP.
 
 **#Authors**:
+
 Philip Metzger
 
 
