@@ -1,7 +1,35 @@
+using System.Collections.Generic;
+
 namespace DungeonRunner
 {
     public class Trader
     {
-        
+        private List<Item> items = new List<Item>();
+        private int SellPrice;
+        private string PotionName;
+
+        public List<Item> Items
+        {
+            get => items;
+            set => items = value;
+        }
+
+        public int SellPrice1
+        {
+            get => SellPrice;
+            set => SellPrice = value;
+        }
+
+        public string PotionName1
+        {
+            get => PotionName;
+            set => PotionName = value;
+        }
+
+        public Trader(int sellPrice, string potionName)
+        {
+            SellPrice = sellPrice;
+            PotionName = potionName;
+        }
     }
 }
