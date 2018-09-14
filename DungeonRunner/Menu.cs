@@ -11,11 +11,29 @@ namespace DungeonRunner
         public void ShowMainMenu()
         {
             Console.WriteLine("Welcome to Dungeon Runner");
-            ShowCharMenu();
-            ShowSaveMenu();
-            ShowLoadMenu();
-            Console.WriteLine("Press [4] to start the game");
-            GameStart();
+            int input = Int32.Parse(Console.ReadLine());
+            switch (input)
+            {
+                case 1:
+                    ShowCharMenu();
+                    break;
+                case 2:
+                    ShowSaveMenu();
+                    break;
+                case 3:
+                    ShowLoadMenu();
+                    break;
+                case 4:
+                    GameStart();
+                    break;
+                default:
+                    Console.WriteLine("No Input given");
+                    break;
+            }
+           
+          
+            
+            
         }
 
 
