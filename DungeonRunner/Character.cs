@@ -10,7 +10,7 @@ namespace DungeonRunner
         private int LP;
         private int MP;
         private int Gold;
-        private int CharakterAt;
+        private int CharAtRoom;
         private bool Dead;
         
         public Character(string name, int age)
@@ -49,10 +49,10 @@ namespace DungeonRunner
             set => Gold = value;
         }
 
-        public int CharakterAt1
+        public int CharAtRoom1
         {
-            get => CharakterAt;
-            set => CharakterAt = value;
+            get => CharAtRoom;
+            set => CharAtRoom = value;
         }
 
         public bool Dead1
