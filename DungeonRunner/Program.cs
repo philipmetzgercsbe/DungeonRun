@@ -11,7 +11,8 @@ namespace DungeonRunner
         static void Main(string[] args)
         {
             Menu start = new Menu();
-            Character Person1 = new Character("test",12,23,13);
+            
+            
             
 
 

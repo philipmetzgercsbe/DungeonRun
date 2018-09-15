@@ -10,18 +10,26 @@ namespace DungeonRunner
     {
         
         
-        public void takechar(ref Character[] Person1)
+        public void takechar()
         {
             StreamWriter FileWriter = new StreamWriter("test.txt");
-            FileWriter.WriteLine(Person1.Length + 1);
-            Console.WriteLine("test");
+            Console.WriteLine("What is your name?: ");
+            string n1 = Console.ReadLine();
+            Console.WriteLine("How old are you{0}?: ",n1);
+            int a1 = Convert.ToInt16(Console.ReadLine());
             
-            for (int i = 0; i < Person1.Length; i++)
-            {
-                
-                
-            }
             
+            Character ch1 = new Character(n1,a1);
+           
+            FileWriter.WriteLine(ch1.Name1);
+            FileWriter.WriteLine(ch1.Age1);
+            FileWriter.WriteLine(ch1.Lp);
+            FileWriter.WriteLine(ch1.Mp);
+            FileWriter.WriteLine(ch1.CharAtRoom1);
+            FileWriter.WriteLine(ch1.Dead1);
+            
+            
+
         }
     }
 }

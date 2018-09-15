@@ -1,3 +1,6 @@
+using System;
+using System.Runtime.InteropServices;
+
 namespace DungeonRunner
 {
     public class Character
@@ -9,18 +12,21 @@ namespace DungeonRunner
         private List<T> Item*/
         private string Name;
         private int Age;
-        private int LP;
-        private int MP;
-        private int Gold;
-        private int CharAtRoom;
+        private int LP= 100;
+        private int MP = 0;
+        private int Gold = 0;
+        private int CharAtRoom = 0;
         private bool Dead;
-        
-        public Character(string name, int age, int lp, int mp)
+
+        public void AskforNandA()
+        {
+            Console.WriteLine("What shall your name be?:");
+        }
+        public Character(string name, int age)
         {
             Name = name;
             Age = age;
-            LP = lp;
-            MP = mp;
+            
         }
 
         public string Name1
