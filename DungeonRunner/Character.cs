@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 namespace DungeonRunner
@@ -6,10 +7,8 @@ namespace DungeonRunner
     public class Character
     {
       
-
-        //List<CharClass> class = List<CharClass>;
-        /*private List<T> class
-        private List<T> Item*/
+        List<CharClass> CharClass=  new List<CharClass>();
+        private List<Item> Item = new List<Item>();
         private string Name;
         private int Age;
         private int LP= 100;
@@ -18,9 +17,9 @@ namespace DungeonRunner
         private int CharAtRoom = 0;
         private bool Dead;
 
-        public void AskforNandA()
+        public void ReturnName()
         {
-            Console.WriteLine("What shall your name be?:");
+            Console.WriteLine(Name);
         }
         public Character(string name, int age)
         {
@@ -69,6 +68,14 @@ namespace DungeonRunner
         {
             get => Dead;
             set => Dead = value;
+        }
+
+        public List<string> getItems()
+        {
+            foreach (var ownedItem in Item)
+            {
+                Console.WriteLine("You have in your inventory",ownedItem);
+            }
         }
     }
     
