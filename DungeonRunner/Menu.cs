@@ -42,8 +42,7 @@ namespace DungeonRunner
         public void ShowResources()
         {
             Console.WriteLine("Inventory: LP: MP: Gold:");
-            Console.WriteLine();
-            //Inventory: Character.showItems() Character.showLifePoints() Character.showManaPoints(); Character.showCurrentGold
+            Console.WriteLine(MyCharacter.ShowItems() + MyCharacter.ShowLifePoints + MyCharacter.ShowManaPoints + MyCharacter.ShowCurrentGold());
             //ref Char
 
         }
@@ -55,7 +54,7 @@ namespace DungeonRunner
             Console.WriteLine("Enter your Age {0}",name);
             int age = Int32.Parse(Console.ReadLine());
             Console.WriteLine("Chooose your Class {0}",name);
-            Console.WriteLine();
+            Console.WriteLine("");
             //out List<CharClass> = "Ranger","Rogue","Mage","Barbarian"
             Console.WriteLine("Press enter to finish your Character");
             //Write to Character Object
@@ -75,9 +74,11 @@ namespace DungeonRunner
 
         public void ShowLoadMenu()
         {
-            Load loader = new Load();
+            Load load = new Load();
             Console.WriteLine("In which file is your character");
-            //Read file 
+            load.CheckIfCharExists();
+            load.LoadCharacter();
+            //Read file
             //Try Catch
         }
 

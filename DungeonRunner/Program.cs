@@ -16,14 +16,11 @@ namespace DungeonRunner
         public Character MyCharacter;
         static void Main(string[] args)
         {
+            CreateDirectorys();
             start = new Menu();
-//            MyCharacter = new Character();
-            if (!Directory.Exists("DungeonRunner/Saves"))
-            {
-                Directory.CreateDirectory("DungeonRunner/Saves");
-                Directory.CreateDirectory("DungeonRunner/Saves/Txt");
-                Directory.CreateDirectory("DungeonRUnner/Saves/Json");
-            }
+           // MyCharacter = new Character();
+           
+          
 
             
             
@@ -45,9 +42,20 @@ namespace DungeonRunner
         }
 
        private static void RestartGame()
-        {
+       {
+           
            start.ShowMainMenu();
-            
+       }
+
+        private static void CreateDirectorys()
+        {
+            if (!Directory.Exists("DungeonRunner/Saves"))
+            {
+                Directory.CreateDirectory("DungeonRunner/Saves");
+                Directory.CreateDirectory("DungeonRunner/Saves/Txt");
+                Directory.CreateDirectory("DungeonRUnner/Saves/Json");
+            }
+
         }
     }
 }

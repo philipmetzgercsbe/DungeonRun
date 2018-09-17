@@ -25,7 +25,7 @@ namespace DungeonRunner
             List<Ability> RogueAbilitesList = new List<Ability>();
             List<Ability> BarbarianAbilitiesList = new List<Ability>();
             Name = name;
-            if (name == "Ranger")   // Check Classname and their Abilites. 
+            if (Name == "Ranger")   // Check Classname and their Abilites. 
             {
                 
                 for (int i = 0; i <= _RangerAbilities.Length; i++)
@@ -36,7 +36,7 @@ namespace DungeonRunner
                     Abilities.Add(_RangerAbilities[i], RangerAbilitiesList); 
                 }
             }
-            else if (name == "Mage")
+            else if (Name == "Mage")
             {
                 for (int i = 0; i <= _MageAbilities.Length; i++)
                 {
@@ -45,7 +45,7 @@ namespace DungeonRunner
                 }
 
             }
-            else if (name == "Rogue")
+            else if (Name == "Rogue")
             {
                 for (int i = 0; i <= _RogueAbilities.Length; i++)
                 {
@@ -54,7 +54,7 @@ namespace DungeonRunner
                 }
 
             }
-            else if (name == "Barbarian")
+            else if (Name == "Barbarian")
             {
                 for (int i = 0; i <= _BarbarianAbilites.Length; i++)
                 {
