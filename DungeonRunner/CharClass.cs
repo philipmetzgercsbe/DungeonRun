@@ -14,7 +14,10 @@ namespace DungeonRunner
         private static int[] _ManaCost = {0,2,5,10};
         private static int[] _AbilityDMG = {1, 2, 5, 10};
 
-
+        public CharClass()
+        {
+            
+        }
         public CharClass(string name)
         {
             List<Ability> RangerAbilitiesList = new List<Ability>();

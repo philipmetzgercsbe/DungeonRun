@@ -26,7 +26,7 @@ namespace DungeonRunner
 
             }
         }
-
+       
         public void CheckIfCharExists()
         {
             Console.WriteLine("Pick a character");
@@ -42,8 +42,7 @@ namespace DungeonRunner
                         Console.WriteLine("Char found");
                         sr.Close();
                         isMatch = true;
-                        Menu GameStart = new Menu();
-                        GameStart.GameMenu();
+                        
                     }
                 }
 
