@@ -21,6 +21,11 @@ namespace DungeonRunner
         {
             Console.WriteLine(Name);
         }
+
+        public Character()
+        {
+        }
+
         public Character(string name, int age, string ClassName)
         {
             CharClass CharClass=  new CharClass();
@@ -71,12 +76,27 @@ namespace DungeonRunner
             set => Dead = value;
         }
 
-        public void GetItems()
+        public void ShowItems()
         {
             foreach (var ownedItem in Item)
             {
                 Console.WriteLine("You have in your inventory",ownedItem);
             }
+        }
+
+        public void ShowLifePoints()
+        {
+            Console.WriteLine(this.LP);    
+        }
+
+        public void ShowManaPoints()
+        {
+            Console.WriteLine(this.MP);
+        }
+
+        public void ShowCurrentGold()
+        {
+            Console.WriteLine(this.Gold);   
         }
     }
     
