@@ -7,7 +7,7 @@ namespace DungeonRunner
     public class Character
     {
       
-        List<CharClass> CharClass=  new List<CharClass>();
+        
         private List<Item> Item = new List<Item>();
         private string Name;
         private int Age;
@@ -23,9 +23,10 @@ namespace DungeonRunner
         }
         public Character(string name, int age, string ClassName)
         {
+            CharClass CharClass=  new CharClass();
             Name = name;
             Age = age;
-            this.CharClass = new CharClass(ClassName);
+            CharClass = new CharClass(ClassName);
         }
 
         public string Name1
@@ -70,7 +71,7 @@ namespace DungeonRunner
             set => Dead = value;
         }
 
-        public List<string> GetItems()
+        public void GetItems()
         {
             foreach (var ownedItem in Item)
             {
