@@ -14,7 +14,7 @@ namespace DungeonRunner
 
         public void LoadCharacter(/*ref CreateChar ch1*/)
         {
-            using (StreamReader reader = new StreamReader("data.txt"))
+            using (StreamReader reader = new StreamReader("test.txt"))
             {
                 Console.WriteLine("Here is a list of characters:");//show only names
                 string s;
@@ -31,9 +31,9 @@ namespace DungeonRunner
         {
             Console.WriteLine("Pick a character");
             pickchar = Console.ReadLine();
-            using (StreamReader sr = File.OpenText("data.txt"))
+            using (StreamReader sr = File.OpenText("test.txt"))
             {
-                string[] lines = File.ReadAllLines("data.txt");
+                string[] lines = File.ReadAllLines("test.txt");
                 bool isMatch = false;
                 for (int x = 0; x < lines.Length - 1; x++)
                 {

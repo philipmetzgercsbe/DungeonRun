@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
 
 
 namespace DungeonRunner
@@ -11,32 +13,38 @@ namespace DungeonRunner
     {
        
         
-        public void WriteCharToTxt()
+        public void WriteCharToTxt(Character character)
         {
             //TODO: Write to CharName.txt and load values from Character Object
-            StreamWriter FileWriter = new StreamWriter("test.txt");
-            Console.WriteLine("What is your name?: ");
-            string n1 = Console.ReadLine();
-            Console.WriteLine("How old are you{0}?: ",n1);
-            int a1 = Convert.ToInt16(Console.ReadLine());
-            
+            StreamWriter FileWriter = new StreamWriter(character + ".txt");
+           
+           
             //TODO: Call dynamic Object and write to file
-            Character ch1 = new Character(n1,a1);
+          
            //
-            FileWriter.WriteLine(ch1.Name1);
-            FileWriter.WriteLine(ch1.Age1);
-            FileWriter.WriteLine(ch1.Lp);
-            FileWriter.WriteLine(ch1.Mp);
+            FileWriter.WriteLine(character.Name1);
+            FileWriter.WriteLine(character.Age1);
+            FileWriter.WriteLine(character.Lp);
+            FileWriter.WriteLine(character.Mp);
             
             
             
 
         }
 
-        public void WriteToJson()
+        public void WriteToJson(Character character)
         {
-            //Write to json
 
+           List<string> _data = new List<string>();
+            _data.Add(character.Name1);
+            _data.Add(character.Age1.ToString());
+            _data.Add(character.Lp.ToString());
+            _data.Add(character.Mp.ToString());
+
+            string json = JsonConvert.SerializeObject(_data.ToArray());
+            
+            StreamWriter FileWriter = new StreamWriter(character + ".json");
+            FileWriter.WriteLine(json);
         }
     }
 }
