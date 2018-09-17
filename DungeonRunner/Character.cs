@@ -11,8 +11,8 @@ namespace DungeonRunner
         private List<Item> Item = new List<Item>();
         private string Name;
         private int Age;
-        private int LP= 100;
-        private int MP = 0;
+        private int LP= 10;
+        private int MP = 10;
         private int Gold = 0;
         private int CharAtRoom = 0;
         private bool Dead;
@@ -21,11 +21,11 @@ namespace DungeonRunner
         {
             Console.WriteLine(Name);
         }
-        public Character(string name, int age)
+        public Character(string name, int age, string ClassName)
         {
             Name = name;
             Age = age;
-            
+            this.CharClass = new CharClass(ClassName);
         }
 
         public string Name1
@@ -70,7 +70,7 @@ namespace DungeonRunner
             set => Dead = value;
         }
 
-        public List<string> getItems()
+        public List<string> GetItems()
         {
             foreach (var ownedItem in Item)
             {

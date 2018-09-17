@@ -1,10 +1,11 @@
+using System;
+
 namespace DungeonRunner
 {
     public class Room
     {
         /*Monster Monster*/
         /*Character Character*/
-        /*Trader trader*/
         /*Random random*/
         private int Round;
         private int Level;
@@ -14,6 +15,8 @@ namespace DungeonRunner
         {
             Level = level;
             StatsAfterVictory = statsAfterVictory;
+            IncrementLevel();
+            SpawnTrader();
         }
 
         public int Round1
@@ -32,6 +35,21 @@ namespace DungeonRunner
         {
             get => StatsAfterVictory;
             set => StatsAfterVictory = value;
+        }
+
+        private void IncrementLevel()
+        {
+            this.Level++;
+        }
+
+        private void SpawnTrader()
+        {
+            Random rand = new Random();
+            for (int i = 0; i < this.Level; i++)
+            {
+                //Trader trader = new Trader(); Figure out 
+                
+            }
         }
     }
 }

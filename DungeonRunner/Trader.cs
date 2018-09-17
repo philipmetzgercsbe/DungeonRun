@@ -30,6 +30,10 @@ namespace DungeonRunner
         {
             SellPrice = sellPrice;
             PotionName = potionName;
+            for (int i = 0; i < 2; i++)
+            {
+                items.Add(potionName,sellPrice);
+            }
         }
     }
 }

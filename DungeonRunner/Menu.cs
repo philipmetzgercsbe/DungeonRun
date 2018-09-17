@@ -6,6 +6,7 @@ using System.Xml;
 
 namespace DungeonRunner
 {
+    //Reference all Objects 
     public class Menu
     {
         public void ShowMainMenu()
@@ -43,6 +44,7 @@ namespace DungeonRunner
             Console.WriteLine("Inventory: LP: MP: Gold:");
             Console.WriteLine();
             //Inventory: Character.showItems() Character.showLifePoints() Character.showManaPoints(); Character.showCurrentGold
+            //ref Char
 
         }
 
@@ -53,6 +55,7 @@ namespace DungeonRunner
             Console.WriteLine("Enter your Age {0}",name);
             int age = Int32.Parse(Console.ReadLine());
             Console.WriteLine("Chooose your Class {0}",name);
+            Console.WriteLine();
             //out List<CharClass> = "Ranger","Rogue","Mage","Barbarian"
             Console.WriteLine("Press enter to finish your Character");
             //Write to Character Object
@@ -72,7 +75,7 @@ namespace DungeonRunner
 
         public void ShowLoadMenu()
         {
-            //Initiate Load Class
+            Load loader = new Load();
             Console.WriteLine("In which file is your character");
             //Read file 
             //Try Catch
