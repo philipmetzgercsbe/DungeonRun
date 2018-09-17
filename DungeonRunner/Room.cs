@@ -4,18 +4,22 @@ namespace DungeonRunner
 {
     public class Room
     {
-        /*Monster Monster*/
+        
         /*Character Character*/
         /*Random random*/
         private int Round;
-        private int Level;
+        private static int Level;
         private int StatsAfterVictory;
 
         public Room(int level, int statsAfterVictory)
         {
+            Monster Enemy = new Monster(statsAfterVictory,statsAfterVictory,statsAfterVictory+2);
             Level = level;
             StatsAfterVictory = statsAfterVictory;
-            IncrementLevel();
+            if (Enemy.IsDead == true)
+            {
+                IncrementLevel();
+            }
             SpawnTrader();
         }
 
@@ -39,16 +43,15 @@ namespace DungeonRunner
 
         private void IncrementLevel()
         {
-            this.Level++;
+            Level++;
         }
 
         private void SpawnTrader()
         {
             Random rand = new Random();
-            for (int i = 0; i < this.Level; i++)
+            if (Level == rand.Next(1, 10))
             {
-                //Trader trader = new Trader(); Figure out 
-                
+             Trader Trader = new Trader(Math.Abs(StatsAfterVictory/2));   
             }
         }
     }

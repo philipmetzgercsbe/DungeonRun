@@ -13,11 +13,11 @@ namespace DungeonRunner
     class Program
     {
         public static Menu start;
-        public Character char;
+        public Character MyCharacter;
         static void Main(string[] args)
         {
             start = new Menu();
-            char = new Character();
+//            MyCharacter = new Character();
             if (!Directory.Exists("DungeonRunner/Saves"))
             {
                 Directory.CreateDirectory("DungeonRunner/Saves");
@@ -47,6 +47,7 @@ namespace DungeonRunner
        private static void RestartGame()
         {
            start.ShowMainMenu();
+            
         }
     }
 }

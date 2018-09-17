@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace DungeonRunner
@@ -26,13 +27,24 @@ namespace DungeonRunner
             set => PotionName = value;
         }
 
-        public Trader(int sellPrice, List<string> potionName)
+        public Trader(int sellPrice)
         {
             SellPrice = sellPrice;
-            PotionName = potionName;
+            PotionName.Add("Health Potion");
+            PotionName.Add("Mana Potion");
             for (int i = 0; i < 2; i++)
             {
-                items.Add(potionName,sellPrice);
+                items.Add();//Add Potions to Trader
+            }
+        }
+
+        public void ShowItems()
+        {
+            foreach (var Potion in items)
+            {
+                Console.WriteLine("Item: " + Potion);
+                //Print all Potions in Inventory 
+
             }
         }
     }
