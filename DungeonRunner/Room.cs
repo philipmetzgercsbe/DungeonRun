@@ -4,9 +4,10 @@ namespace DungeonRunner
 {
     public class Room
     {
-        
+
         /*Character Character*/
         /*Random random*/
+        Random rand = new Random();
         private int Round;
         private static int Level;
         private int StatsAfterVictory;
@@ -16,10 +17,10 @@ namespace DungeonRunner
             Monster Enemy = new Monster(statsAfterVictory,statsAfterVictory,statsAfterVictory+2);
             Level = level;
             StatsAfterVictory = statsAfterVictory;
-            if (Enemy.IsDead == true)
-            {
-                IncrementLevel();
-            }
+//            if (Enemy.IsDead == true)
+//            {
+//                IncrementLevel();
+//            }
             SpawnTrader();
         }
 
@@ -48,10 +49,22 @@ namespace DungeonRunner
 
         private void SpawnTrader()
         {
-            Random rand = new Random();
-            if (Level == rand.Next(1, 10))
+          
+            if (Level >= 1 && Level <= 200 && rand.Next(1,10) < 5)
             {
              Trader Trader = new Trader(Math.Abs(StatsAfterVictory/2));   
+            }
+        }
+
+        private void GetRoundPlayer()
+        {
+            if (Round % 2 == 0)
+            {
+                Character.setTurn();
+                this.Round++;
+            }else if (Round % 2 == 1)
+            {
+                Enemy.Attack(rand.Next(0, 20));
             }
         }
     }

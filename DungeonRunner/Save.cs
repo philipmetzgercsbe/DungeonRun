@@ -17,11 +17,7 @@ namespace DungeonRunner
         {
             //TODO: Write to CharName.txt and load values from Character Object
             StreamWriter FileWriter = new StreamWriter(character + ".txt");
-           
-           
             //TODO: Call dynamic Object and write to file
-          
-           //
             FileWriter.WriteLine(character.Name1);
             FileWriter.WriteLine(character.Age1);
             FileWriter.WriteLine(character.Lp);
