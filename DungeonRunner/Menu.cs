@@ -8,9 +8,11 @@ using System.Xml;
 
 namespace DungeonRunner
 {
-    //Reference all Objects 
+    
     public class Menu
     {
+        //Reference all used Objects
+        public Character MyCharacter;
         public void ShowMainMenu()
         {
             Console.WriteLine("Welcome to Dungeon Runner");
@@ -141,9 +143,12 @@ namespace DungeonRunner
         private void FightMenu()
         {
             Console.WriteLine(MyCharacter.Abilities);
+            //Iterate through Abilities
             Console.WriteLine("Choose your Ability:");
-            //Iterate through Abilities 
+            string Spellname = Console.ReadLine();
             //UseSpell(Spellname)
+            MyCharacter.UseSpell(Spellname);
+            //Get Curr Room and
             //Check if enemy or self alive
             //LP += GainStats + MP+=GainStats + CurrentGold += GoldtoDrop
             //If dead 

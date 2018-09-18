@@ -51,7 +51,13 @@ namespace DungeonRunner
 
         public void CheckHealth()
         {
-            throw new System.NotImplementedException();
+            if (this.LP == 0)
+            {
+                this.IsDead = true;
+            }
+            //Set Monster Object to null to create Space for a new Monster
+
+           
         }
     }
 }

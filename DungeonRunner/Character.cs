@@ -6,9 +6,9 @@ namespace DungeonRunner
 {
     public class Character : Buy , Battle
     {
-      
-        
-        private List<Item> Item = new List<Item>();
+
+        private CharClass CharClass;
+        private List<Item> Items = new List<Item>();
         private string Name;
         private int Age;
         private int LP= 10;
@@ -30,7 +30,7 @@ namespace DungeonRunner
 
         public Character(string name, int age, string ClassName)
         {
-            CharClass CharClass=  new CharClass();
+            
             Name = name;
             Age = age;
             CharClass = new CharClass(ClassName);
@@ -80,7 +80,7 @@ namespace DungeonRunner
 
         public void ShowItems()
         {
-            foreach (var ownedItem in Item)
+            foreach (var ownedItem in Items)
             {
                 Console.WriteLine("You have in your inventory",ownedItem);
             }
@@ -101,34 +101,74 @@ namespace DungeonRunner
             Console.WriteLine(this.Gold);   
         }
 
-        public void Attack()
+        public void BuyItem(Item item)
         {
+            if (Items.Count >= 2 && item.ItemName1 == "LifePotion")
+            {
+                //Remove Item with the Name and re-add it with new values
+            }
+            else
+            {
+                Items.Add(item);
+                this.Gold -= ; //Item Cost from Trader
+            }
             throw new NotImplementedException();
         }
 
-        public void UseSpell()
+        public void UseItem(Item item)
         {
+            if (Items.Contains(item))
+            {
+                //Finish/Implement  this method correctly
+                Item usedItem = this.Items.Find(item);
+                if (usedItem.ItemName1 == "Health Potion")
+                {
+                    this.LP += usedItem.Restore1;
+                }else if (usedItem.ItemName1 == "Mana Potion")
+                {
+                    this.MP += usedItem.Restore1;
+                }
+                RemoveItem(item);
+                
+                
+               
+            }
+        }
+
+        public void RemoveItem(Item item)
+        {
+            this.Items.Remove(item);
             throw new NotImplementedException();
+        }
+
+        public void Attack(Character character, Monster monster)
+        {
+            //Randomize DMG
+            //remove LP from Character
+            throw new NotImplementedException();
+        }
+
+        public void UseSpell(Ability ability)
+        {
+            //Get all Abilites
+            this.CharClass.getAbilities();
+            if (this.MP == 0)
+            {
+                Console.WriteLine("You cannot use advanced Abilities, drink a Mana Potion to restore Mana");
+                //Use basic Attack
+            }
+            //Access Ability list and get MPCost and remove LP from Monster
+            
         }
 
         public void CheckHealth()
         {
-            throw new NotImplementedException();
-        }
-
-        public void buy()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UseItem()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveItem()
-        {
-            throw new NotImplementedException();
+            if (LP == 0)
+            {
+                Dead = true;
+                Console.WriteLine("You died");
+            }
+             
         }
     }
     
