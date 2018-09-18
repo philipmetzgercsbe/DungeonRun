@@ -8,7 +8,9 @@ namespace DungeonRunner
 {
     interface Battle
     {
-        void Fight();
+        void Attack();
+
+        void UseSpell();
 
         void CheckHealth();
     }

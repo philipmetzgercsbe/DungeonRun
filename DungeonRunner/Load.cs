@@ -5,7 +5,12 @@ namespace DungeonRunner
 {
     public class Load
     {
-        private string pickchar;
+        private static string JsonPath = "";
+        private static string TxtPath = "";
+        private static string JsonFileEnd = ".json";
+        private static string TxtFileEnd = ".txt";
+        private static string pickchar;
+        private StreamReader sr;
         
         public Load()
         {
@@ -27,11 +32,18 @@ namespace DungeonRunner
             }
         }
        
-        public void CheckIfCharExists()
+        public void CheckIfCharExists(string FileName)
         {
-            Console.WriteLine("Pick a character");
-            pickchar = Console.ReadLine();
-            using (StreamReader sr = File.OpenText("test.txt"))
+            if (File.Exists(Path.Combine(JsonPath + FileName + JsonFileEnd)))
+            {
+                return;
+            }
+            if (File.Exists(Path.Combine( TxtPath + FileName + TxtFileEnd)))
+            {
+                return;
+            }
+            pickchar = FileName;
+            sr = File.OpenText(TxtPath + FileName + TxtFileEnd);
             {
                 string[] lines = File.ReadAllLines("test.txt");
                 bool isMatch = false;

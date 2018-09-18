@@ -1,6 +1,6 @@
 namespace DungeonRunner
 {
-    public class Monster
+    public class Monster : Battle
     {
         private int LP;
         private int DMG;
@@ -37,6 +37,21 @@ namespace DungeonRunner
         {
             get => isDead;
             set => isDead = value;
+        }
+
+        public void Attack()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void UseSpell()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void CheckHealth()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

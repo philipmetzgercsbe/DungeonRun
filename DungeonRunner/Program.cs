@@ -12,12 +12,14 @@ namespace DungeonRunner
     
     class Program
     {
-        public static Menu start;
+        public static Menu Start;
         public Character MyCharacter;
         static void Main(string[] args)
         {
             CreateDirectorys();
-            start = new Menu();
+            Start = new Menu();
+            Start.ShowMainMenu();
+            
            // MyCharacter = new Character();
            
           
@@ -36,7 +38,7 @@ namespace DungeonRunner
                     End Game 
                     Delete Character Object
                     call Restart Game 
-                    which calls start.MainMenu();
+                    which calls Start.MainMenu();
 
             } */
         }
@@ -44,15 +46,15 @@ namespace DungeonRunner
        private static void RestartGame()
        {
            
-           start.ShowMainMenu();
+           Start.ShowMainMenu();
        }
 
         private static void CreateDirectorys()
         {
-            if (!Directory.Exists("DungeonRunner/Saves"))
+            if (!Directory.Exists("DungeonRunner//Saves"))
             {
-                Directory.CreateDirectory("DungeonRunner/Saves");
-                Directory.CreateDirectory("DungeonRunner/Saves/Txt");
+                Directory.CreateDirectory("DungeonRunner//Saves");
+                Directory.CreateDirectory("DungeonRunner//Saves//Txt");
                 Directory.CreateDirectory("DungeonRUnner/Saves/Json");
             }
 

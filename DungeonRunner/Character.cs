@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace DungeonRunner
 {
-    public class Character
+    public class Character : Buy , Battle
     {
       
         
@@ -16,6 +16,8 @@ namespace DungeonRunner
         private int Gold = 0;
         private int CharAtRoom = 0;
         private bool Dead;
+
+        
 
         public void ReturnName()
         {
@@ -97,6 +99,36 @@ namespace DungeonRunner
         public void ShowCurrentGold()
         {
             Console.WriteLine(this.Gold);   
+        }
+
+        public void Attack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UseSpell()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CheckHealth()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void buy()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UseItem()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveItem()
+        {
+            throw new NotImplementedException();
         }
     }
     

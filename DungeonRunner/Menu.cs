@@ -14,7 +14,7 @@ namespace DungeonRunner
         public void ShowMainMenu()
         {
             Console.WriteLine("Welcome to Dungeon Runner");
-            Console.WriteLine("Press [1] to Create a Character\n Press [2] to save a created Character\n Press [3] to load a saved Character\n Press [4] to start Dungeon Runner");
+            Console.WriteLine("Press [1] to Create a Character\n Press [2] to save a created Character\n Press [3] to load a saved Character\n Press [4] to Start Dungeon Runner");
             int input = Int32.Parse(Console.ReadLine());
             switch (input)
             {
@@ -111,7 +111,8 @@ namespace DungeonRunner
         {
             Load load = new Load();
             Console.WriteLine("In which file is your character");
-            load.CheckIfCharExists();
+            string CharName = Console.ReadLine();
+            load.CheckIfCharExists(CharName);
             load.LoadCharacter();
             //Read file
             //Try Catch
@@ -124,7 +125,7 @@ namespace DungeonRunner
             //show individual menus
         }
 
-        public void WriteToCharObj(string name, int age, string charClass)
+        private void WriteToCharObj(string name, int age, string charClass)
         {
             Character MyCharacter = new Character(name, age, charClass);
         }
