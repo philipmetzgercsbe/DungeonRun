@@ -5,8 +5,8 @@ namespace DungeonRunner
 {
     public class Load
     {
-        private static string JsonPath = "";
-        private static string TxtPath = "";
+        private static string JsonPath = "DungeonRunner//Saves//Json";
+        private static string TxtPath = "DungeonRunner//Saves//Txt";
         private static string JsonFileEnd = ".json";
         private static string TxtFileEnd = ".txt";
         private static string pickchar;
@@ -43,9 +43,31 @@ namespace DungeonRunner
                 return;
             }
             pickchar = FileName;
-            sr = File.OpenText(TxtPath + FileName + TxtFileEnd);
+            if (FileName == FileName + JsonFileEnd)
             {
-                string[] lines = File.ReadAllLines("test.txt");
+                sr = File.OpenText(JsonPath + FileName + JsonFileEnd);
+                {
+                    MatchCharacter(FileName,TxtFileEnd);
+                }
+
+
+            }else if (FileName == FileName + TxtFileEnd)
+            {
+                sr = File.OpenText(TxtPath + FileName + TxtFileEnd);
+                {
+                    MatchCharacter(FileName,JsonFileEnd);
+                }
+            }
+        }
+
+           
+
+        private void MatchCharacter(string FileName,string FileEnd)
+        {
+           
+            if (FileEnd == TxtFileEnd)
+            {
+                string[] lines = File.ReadAllLines(TxtPath + FileName + TxtFileEnd);
                 bool isMatch = false;
                 for (int x = 0; x < lines.Length - 1; x++)
                 {
@@ -54,7 +76,6 @@ namespace DungeonRunner
                         Console.WriteLine("Char found");
                         sr.Close();
                         isMatch = true;
-                        
                     }
                 }
 
@@ -64,6 +85,28 @@ namespace DungeonRunner
                     sr.Close();
                 }
             }
+            else if (FileEnd == JsonFileEnd)
+            {
+                string[] lines = File.ReadAllLines(JsonPath + FileName + JsonFileEnd);
+                bool isMatch = false;
+                for (int x = 0; x < lines.Length - 1; x++)
+                {
+                    if (pickchar == lines[x])
+                    {
+                        Console.WriteLine("Char found");
+                        sr.Close();
+                        isMatch = true;
+                    }
+                }
+
+                if (!isMatch)
+                {
+                    Console.WriteLine("Char not found");
+                    sr.Close();
+                }
+            }
+           
+            
         }
     }
 }

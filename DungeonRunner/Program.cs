@@ -55,7 +55,7 @@ namespace DungeonRunner
             {
                 Directory.CreateDirectory("DungeonRunner//Saves");
                 Directory.CreateDirectory("DungeonRunner//Saves//Txt");
-                Directory.CreateDirectory("DungeonRUnner/Saves/Json");
+                Directory.CreateDirectory("DungeonRunner//Saves//Json");
             }
 
         }
