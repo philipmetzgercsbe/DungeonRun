@@ -47,7 +47,7 @@ namespace DungeonRunner
             });;
 
 
-            FileWriter = new StreamWriter(@"DungeonRunner\\saves\\json\\" + character + ".json", true);
+            FileWriter = new StreamWriter(@"DungeonRunner\\saves\\Json\\" + character + ".json", true);
                 string jsonobject = JsonConvert.SerializeObject(o);
                 FileWriter.Write(jsonobject);
                 
