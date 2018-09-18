@@ -8,7 +8,8 @@ namespace DungeonRunner
 {
     interface Buy
     {
-        void buy();
+        
+        void BuyItem();
 
         void UseItem();
 

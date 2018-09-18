@@ -145,8 +145,9 @@ namespace DungeonRunner
             //Iterate through Abilities 
             //UseSpell(Spellname)
             //Check if enemy or self alive
-            //GainStats + CurrentGold += GoldtoDrop
-            //If dead delete character
+            //LP += GainStats + MP+=GainStats + CurrentGold += GoldtoDrop
+            //If dead 
+            MyCharacter = null;
 
         }
     }
