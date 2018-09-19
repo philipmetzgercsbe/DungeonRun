@@ -9,10 +9,10 @@ namespace DungeonRunner
     interface Buy
     {
         
-        void BuyItem();
+        void BuyItem(Item item);
 
-        void UseItem();
+        void UseItem(Item item);
 
-        void RemoveItem();
+        void RemoveItem(Item item);
     }
 }

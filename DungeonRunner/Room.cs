@@ -17,10 +17,6 @@ namespace DungeonRunner
             Monster Enemy = new Monster(statsAfterVictory,statsAfterVictory,statsAfterVictory+2);
             Level = level;
             StatsAfterVictory = statsAfterVictory;
-//            if (Enemy.IsDead == true)
-//            {
-//                IncrementLevel();
-//            }
             SpawnTrader();
         }
 

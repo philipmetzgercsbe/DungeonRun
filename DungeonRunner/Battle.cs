@@ -8,10 +8,10 @@ namespace DungeonRunner
 {
     interface Battle
     {
-        void Attack();
+        void Attack( Monster monster); //Only used in the Monster Class
 
-        void UseSpell();
+        void UseSpell(Ability ability); //Only used in the Character Class
 
-        void CheckHealth();
+        void CheckHealth(); //Used in Monster and Character
     }
 }

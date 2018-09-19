@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace DungeonRunner
@@ -62,6 +63,15 @@ namespace DungeonRunner
                     Abilities.Add(_BarbarianAbilites[i], BarbarianAbilitiesList);
                 }
 
+            }
+        }
+
+        public void getAbilities()
+        {
+            foreach (var ability in Abilities)
+            {
+                Console.WriteLine("Spellname:" +ability.Value);
+                
             }
         }
             
