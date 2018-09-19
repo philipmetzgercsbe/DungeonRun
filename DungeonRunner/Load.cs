@@ -25,10 +25,11 @@ namespace DungeonRunner
             using (StreamReader reader = new StreamReader(ChoosenPath + character + ChoosenFileEnd))
             {
                 Console.WriteLine("Here is a list of characters:");
-                string s;
+                string[] s;
                 do
                 {
-                    s = reader.ReadLine();
+
+                    s = Directory.GetFiles(ChoosenPath);
                     Console.WriteLine(s);
                 } while (s != null);
                
