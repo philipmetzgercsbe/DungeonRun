@@ -56,7 +56,7 @@ namespace DungeonRunner
         {
             if (Round % 2 == 0)
             {
-                Character.setTurn();
+
                 this.Round++;
             }else if (Round % 2 == 1)
             {

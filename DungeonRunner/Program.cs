@@ -39,12 +39,7 @@ namespace DungeonRunner
 
         static void EndGame()
         {
-            if(MyCharacter.Dead1 == true )
-            {
-                //End Gameloop
-                MyCharacter == null;
-
-            } 
+            Environment.Exit(0);
         }
 
        private static void RestartGame()

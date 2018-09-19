@@ -101,15 +101,16 @@ namespace DungeonRunner
             Console.WriteLine(this.Gold);   
         }
 
+       
         public void BuyItem(Item item)
         {
             if (Items.Count >= 2 && item.ItemName1 == "Health Potion")
             {
                 for (int i = 0; i < Items.Count; i++)
                 {
-                   var Itemstoreplace = Items.Find(Item => Item.ItemName1 == item.ItemName1);
-                    Items.Remove(Itemstoreplace);
-                    Items.Add(new Item("Health Potion",Trader.Items.Find(item => item)));
+                   var ItemsToReplace = Items.Find(Item => Item.ItemName1 == item.ItemName1);
+                    Items.Remove(ItemsToReplace);
+                    Items.Add(new Item("Health Potion",Trader.SellPrice1));
                     this.Gold -= Trader.SellPrice1;
                 }
                 //Remove Item with the Name and re-add it with new values
@@ -162,13 +163,13 @@ namespace DungeonRunner
             if (this.MP == 0)
             {
                 Console.WriteLine("You cannot use advanced Abilities, drink a Mana Potion to restore Mana");
-                //Use basic Attack
+               
             }else if(this.MP <= 0)
             { 
                 int ChoosenAbility = Int32.Parse(Console.ReadLine());
                 switch (ChoosenAbility)
                 {
-                    case 1: ability.ToString();
+                    case 1: //Access Ability remove MP from Character
                         break;
                     case 2: 
                         break;

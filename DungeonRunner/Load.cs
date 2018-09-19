@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace DungeonRunner
 {
@@ -41,6 +43,7 @@ namespace DungeonRunner
             FileEnd = Convert.ToInt32(Console.ReadLine());
             if (FileEnd == 1)
             {
+              
                 ChoosenFileEnd = JsonFileEnd;
                 ChoosenPath = JsonPath;
 
@@ -50,11 +53,13 @@ namespace DungeonRunner
                 ChoosenFileEnd = TxtFileEnd;
                 ChoosenPath = TxtPath;
             }
+
             
         }
        
         public void CheckIfCharExists(string FileName)
         {
+            
             if (File.Exists(Path.Combine(JsonPath + FileName + JsonFileEnd)))
             {
                 return;
