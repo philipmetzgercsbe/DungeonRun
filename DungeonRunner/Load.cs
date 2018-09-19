@@ -9,7 +9,9 @@ namespace DungeonRunner
         private static string TxtPath = "DungeonRunner//Saves//Txt";
         private static string JsonFileEnd = ".json";
         private static string TxtFileEnd = ".txt";
+        private string ChoosenFileEnd;
         private static string pickchar;
+        private int FileEnd;
         private StreamReader sr;
         
         public Load()
@@ -17,9 +19,9 @@ namespace DungeonRunner
            
         }
 
-        public void LoadCharacter(/*ref CreateChar ch1*/)
+        public void Streamwithparams(Character character)
         {
-            using (StreamReader reader = new StreamReader("test.txt"))
+            using (StreamReader reader = new StreamReader(character+ChoosenFileEnd))
             {
                 Console.WriteLine("Here is a list of characters:");//show only names
                 string s;
@@ -28,8 +30,22 @@ namespace DungeonRunner
                     s = reader.ReadLine();
                     Console.WriteLine(s/*ch1.ChName*/);
                 } while (s != null);
-
+               
+            } 
+        }
+        public void LoadCharacter()
+        {
+            Console.WriteLine("Press [1] to save file as .json\nPress [2] to save file as .txt");
+            FileEnd = Convert.ToInt32(Console.ReadLine());
+            if (FileEnd == 1)
+            {
+                ChoosenFileEnd += ".json";
             }
+            else
+            {
+                ChoosenFileEnd += ".txt";
+            }
+            
         }
        
         public void CheckIfCharExists(string FileName)
