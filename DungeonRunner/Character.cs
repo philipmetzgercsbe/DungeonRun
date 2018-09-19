@@ -103,7 +103,7 @@ namespace DungeonRunner
 
         public void BuyItem(Item item)
         {
-            if (Items.Count >= 2 && item.ItemName1 == "LifePotion")
+            if (Items.Count >= 2 && item.ItemName1 == "Health Potion")
             {
                 //Remove Item with the Name and re-add it with new values
             }
@@ -169,6 +169,11 @@ namespace DungeonRunner
                 Console.WriteLine("You died");
             }
              
+        }
+
+        public void Attack(Monster monster)
+        {
+            throw new NotImplementedException();
         }
     }
     
