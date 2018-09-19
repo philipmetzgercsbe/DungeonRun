@@ -46,7 +46,7 @@ namespace DungeonRunner
 
         public void ShowResources()
         {
-            Console.WriteLine("LP:" + MyCharacter.ShowLifePoints() + "MP:" + MyCharacter.ShowManaPoints(+"Gold:" + MyCharacter.ShowCurrentGold() + "\n" + "Inventory:" + MyCharacter.ShowItems()));
+            Console.WriteLine("LP:" + MyCharacter.ShowLifePoints() + "MP:" + MyCharacter.ShowManaPoints()+"Gold:" + MyCharacter.ShowCurrentGold() + "\n" + "Inventory:" + MyCharacter.ShowItems());
 
             //ref Char
 
@@ -108,7 +108,7 @@ namespace DungeonRunner
             }
 
             if (File.Exists("DungeonRunner/Saves/Json/" + MyCharacter + ".json") ||
-                File.Exists("DungeonRunner/Saves/Txt/" + MyCharacter + ".json"))
+                File.Exists("DungeonRunner/Saves/Txt/" + MyCharacter + ".txt"))
             {
                 Console.WriteLine("A Save File with the same Name already exists");
                 ShowMainMenu();
@@ -125,12 +125,12 @@ namespace DungeonRunner
             load.CheckIfCharExists(CharName);
             load.LoadCharacter();
             ShowMainMenu();
-            //Read file
-            //Try Catch
+           
         }
 
         public void GameStart()
         {
+            Console.WriteLine("You enter the Dungeon and encounter a Monster");
             Room StartingRoom = new Room(1, 1);
             //Call Game Constructor with Character Object;
             //show individual menus
@@ -153,6 +153,13 @@ namespace DungeonRunner
             string Spellname = Console.ReadLine();
             //UseSpell(Spellname)
             MyCharacter.UseSpell(Spellname);
+            if (Room.round >= 2)
+            {
+                MyCharacter.ShowItems();
+                string ItemName = Console.ReadLine();
+                MyCharacter.UseItem(item:Item);
+            }
+           
             //Get Curr Room and
             //Check if enemy or self alive
             //LP += GainStats + MP+=GainStats + CurrentGold += GoldtoDrop

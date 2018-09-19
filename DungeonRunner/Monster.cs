@@ -1,9 +1,11 @@
+using System;
+
 namespace DungeonRunner
 {
     public class Monster : Battle
     {
-        
 
+        private Random rand;
         private int LP;
         private int DMG;
         private int GoldToDrop;
@@ -43,7 +45,11 @@ namespace DungeonRunner
 
         public void Attack(Monster monster)
         {
-            
+            monster = this;
+            int Damage = rand.Next(DMG, DMG * 2);
+            MyCharacter.LP -= Damage;
+            //Randomize DMG
+            //remove LP from Character
             throw new System.NotImplementedException();
         }
 
@@ -58,6 +64,7 @@ namespace DungeonRunner
             if (this.LP == 0)
             {
                 this.IsDead = true;
+                this.;
             }
             //Set Monster Object to null to create Space for a new Monster
 

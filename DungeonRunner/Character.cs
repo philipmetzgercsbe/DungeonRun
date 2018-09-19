@@ -6,7 +6,7 @@ namespace DungeonRunner
 {
     public class Character : Buy , Battle
     {
-
+        private Trader Trader;
         private CharClass CharClass;
         private List<Item> Items = new List<Item>();
         private string Name;
@@ -105,22 +105,30 @@ namespace DungeonRunner
         {
             if (Items.Count >= 2 && item.ItemName1 == "Health Potion")
             {
+                for (int i = 0; i < Items.Count; i++)
+                {
+                   var Itemstoreplace = Items.Find(Item => Item.ItemName1 == item.ItemName1);
+                    Items.Remove(Itemstoreplace);
+                    Items.Add(new Item("Health Potion",Trader.Items.Find(item => item)));
+                    this.Gold -= Trader.SellPrice1;
+                }
                 //Remove Item with the Name and re-add it with new values
             }
             else
             {
                 Items.Add(item);
-                this.Gold -= ; //Item Cost from Trader
+                this.Gold -= Trader.SellPrice1;  //Item Cost from Trader
             }
-            throw new NotImplementedException();
+            
         }
 
         public void UseItem(Item item)
         {
+            
             if (Items.Contains(item))
             {
-                //Finish/Implement  this method correctly
-                Item usedItem = this.Items.Find(item);
+                
+                Item usedItem = this.Items.Find(Item => Item.ItemName1 == item.ItemName1);
                 if (usedItem.ItemName1 == "Health Potion")
                 {
                     this.LP += usedItem.Restore1;
@@ -138,7 +146,6 @@ namespace DungeonRunner
         public void RemoveItem(Item item)
         {
             this.Items.Remove(item);
-            throw new NotImplementedException();
         }
 
         public void Attack(Character character, Monster monster)
@@ -156,7 +163,25 @@ namespace DungeonRunner
             {
                 Console.WriteLine("You cannot use advanced Abilities, drink a Mana Potion to restore Mana");
                 //Use basic Attack
+            }else if(this.MP <= 0)
+            { 
+                int ChoosenAbility = Int32.Parse(Console.ReadLine());
+                switch (ChoosenAbility)
+                {
+                    case 1: ability.ToString();
+                        break;
+                    case 2: 
+                        break;
+                    case 3: 
+                        break;
+                    case 4: 
+                        break;
+                    default: 
+                        break;
+                        
+                }
             }
+            
             //Access Ability list and get MPCost and remove LP from Monster
             
         }
@@ -173,7 +198,9 @@ namespace DungeonRunner
 
         public void Attack(Monster monster)
         {
-            throw new NotImplementedException();
+            //Keep this function empty
+            
+
         }
     }
     
