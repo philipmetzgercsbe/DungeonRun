@@ -175,6 +175,11 @@ namespace DungeonRunner
         {
             throw new NotImplementedException();
         }
+
+        public void Abilities()
+        {
+            
+        }
     }
     
 }
