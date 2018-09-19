@@ -19,6 +19,11 @@ namespace DungeonRunner
             CreateDirectorys();
             Start = new Menu();
             Start.ShowMainMenu();
+            while (true)
+            {
+                
+                
+            }
             
            // MyCharacter = new Character();
            

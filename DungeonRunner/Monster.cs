@@ -2,6 +2,8 @@ namespace DungeonRunner
 {
     public class Monster : Battle
     {
+        
+
         private int LP;
         private int DMG;
         private int GoldToDrop;
@@ -39,13 +41,15 @@ namespace DungeonRunner
             set => isDead = value;
         }
 
-        public void Attack()
+        public void Attack(Monster monster)
         {
+            
             throw new System.NotImplementedException();
         }
 
-        public void UseSpell()
+        public void UseSpell(Ability ability)
         {
+            //Keep Emoty
             throw new System.NotImplementedException();
         }
 

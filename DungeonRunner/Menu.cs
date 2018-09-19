@@ -46,8 +46,8 @@ namespace DungeonRunner
 
         public void ShowResources()
         {
-            Console.WriteLine("Inventory:" + MyCharacter.ShowItems() + "LP:" + MyCharacter.ShowLifePoints + "MP:" +
-                              MyCharacter.ShowManaPoints + "Gold:" + MyCharacter.ShowCurrentGold());
+            Console.WriteLine("LP:" + MyCharacter.ShowLifePoints() + "MP:" + MyCharacter.ShowManaPoints(+"Gold:" + MyCharacter.ShowCurrentGold() + "\n" + "Inventory:" + MyCharacter.ShowItems()));
+
             //ref Char
 
         }
@@ -80,8 +80,8 @@ namespace DungeonRunner
                     break;
             }
 
-            Console.WriteLine("Press enter to finish your Character");
-            //How do I return to main Menu
+            Console.WriteLine("Your are done creating your Character");
+            ShowMainMenu();
 
             //Hallo
 
@@ -124,6 +124,7 @@ namespace DungeonRunner
             string CharName = Console.ReadLine();
             load.CheckIfCharExists(CharName);
             load.LoadCharacter();
+            ShowMainMenu();
             //Read file
             //Try Catch
         }
@@ -143,6 +144,10 @@ namespace DungeonRunner
         private void FightMenu()
         {
             Console.WriteLine(MyCharacter.Abilities);
+            foreach (var Ability in MyCharacter.Abilities)
+            {
+                Console.WriteLine(Ability);   
+            }
             //Iterate through Abilities
             Console.WriteLine("Choose your Ability:");
             string Spellname = Console.ReadLine();
