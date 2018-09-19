@@ -13,9 +13,10 @@ namespace DungeonRunner
     class Program
     {
         public static Menu Start;
-        public Character MyCharacter;
+        public Character MyCharacter = Start.MyCharacter;
         static void Main(string[] args)
         {
+            
             CreateDirectorys();
             Start = new Menu();
             Start.ShowMainMenu();
@@ -38,14 +39,7 @@ namespace DungeonRunner
 
         static void EndGame()
         {
-            /*if () Check if Character is alive
-            {
-                    End Game 
-                    Delete Character Object
-                    call Restart Game 
-                    which calls Start.MainMenu();
-
-            } */
+            Environment.Exit(0);
         }
 
        private static void RestartGame()

@@ -17,9 +17,9 @@ namespace DungeonRunner
         
         public void WriteCharToTxt(Character character)
         {
-            //TODO: Write to CharName.txt and load values from Character Object
+            // Write to CharName.txt and load values from Character Object
             FileWriter = new StreamWriter(@"DungeonRunner\\Saves\\Txt\\"+character + ".txt");
-            //TODO: Call dynamic Object and write to file
+            // Call dynamic Object and write to file
             FileWriter.WriteLine(character.Name1);
             FileWriter.WriteLine(character.Age1);
             FileWriter.WriteLine(character.Lp);
@@ -33,7 +33,7 @@ namespace DungeonRunner
         public void WriteToJson(Character character)
         {
 
-          
+          //Writes  Character to JSON with the Newtonsoft json library
             
             JObject o = (JObject) JToken.FromObject(new
             {

@@ -1,9 +1,11 @@
+using System;
+
 namespace DungeonRunner
 {
     public class Monster : Battle
     {
-        
 
+        private Random rand;
         private int LP;
         private int DMG;
         private int GoldToDrop;
@@ -41,24 +43,33 @@ namespace DungeonRunner
             set => isDead = value;
         }
 
-        public void Attack(Monster monster)
+        public void Attack(Monster monster,Character character)
         {
-            
+            monster = this;
+            int Damage = rand.Next(DMG, DMG * 2);
+            character.Lp -= Damage;
+            //Randomize DMG
+            //remove LP from Character
             throw new System.NotImplementedException();
         }
 
         public void UseSpell(Ability ability)
         {
-            //Keep Emoty
+            //Keep Empty
             throw new System.NotImplementedException();
         }
 
         public void CheckHealth()
         {
+            Console.WriteLine(LP);
             if (this.LP == 0)
             {
                 this.IsDead = true;
+                Console.WriteLine("The Monster died and you earned {0} Gold and gained + {1} Life and Mana",GoldToDrop,LP);
+               
             }
+
+            
             //Set Monster Object to null to create Space for a new Monster
 
            
