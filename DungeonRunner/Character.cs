@@ -86,19 +86,21 @@ namespace DungeonRunner
             }
         }
 
-        public void ShowLifePoints()
+        public int ShowLifePoints()
         {
-            Console.WriteLine(this.LP);    
+            return this.Lp;
+
+
         }
 
-        public void ShowManaPoints()
+        public int ShowManaPoints()
         {
-            Console.WriteLine(this.MP);
+            return this.MP;
         }
 
-        public void ShowCurrentGold()
+        public int ShowCurrentGold()
         {
-            Console.WriteLine(this.Gold);   
+            return this.Gold;   
         }
 
        

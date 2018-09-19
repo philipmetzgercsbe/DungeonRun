@@ -46,7 +46,7 @@ namespace DungeonRunner
 
         public void ShowResources()
         {
-            Console.WriteLine("LP:" + MyCharacter.ShowLifePoints() + "MP:" + MyCharacter.ShowManaPoints()+"Gold:" + MyCharacter.ShowCurrentGold() + "\n" + "Inventory:" + MyCharacter.ShowItems());
+            Console.WriteLine("LP:" + MyCharacter.ShowLifePoints().ToString() + "MP:" + MyCharacter.ShowManaPoints().ToString()+"Gold:" + MyCharacter.ShowCurrentGold().ToString() + "\n" + "Inventory:" + MyCharacter.ShowItems()));
 
             //ref Char
 
