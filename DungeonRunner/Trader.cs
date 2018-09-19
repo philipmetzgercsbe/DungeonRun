@@ -34,7 +34,7 @@ namespace DungeonRunner
             PotionName.Add("Mana Potion");
             for (int i = 0; i < 2; i++)
             {
-                TraderItems.Add(new Item(PotionName.Find("Health Potion"),));//Add Potions to Trader
+                TraderItems.Add(new Item(PotionName.ge("Health Potion"),));//Add Potions to Trader
             }
         }
 

@@ -4,9 +4,8 @@ namespace DungeonRunner
 {
     public class Room
     {
-
-        /*Character Character*/
-        /*Random random*/
+        public Monster Enemy;
+        public Character MyCharacter;
         Random rand = new Random();
         private int Round;
         private static int Level;
@@ -14,7 +13,7 @@ namespace DungeonRunner
 
         public Room(int level, int statsAfterVictory)
         {
-            Monster Enemy = new Monster(statsAfterVictory,statsAfterVictory,statsAfterVictory+2);
+            Enemy = new Monster(statsAfterVictory,statsAfterVictory,statsAfterVictory+2);
             Level = level;
             StatsAfterVictory = statsAfterVictory;
             SpawnTrader();
@@ -60,7 +59,8 @@ namespace DungeonRunner
                 this.Round++;
             }else if (Round % 2 == 1)
             {
-                Enemy.Attack(rand.Next(0, 20));
+                Enemy.Attack(Enemy,MyCharacter);
+                this.Round++;
             }
         }
     }

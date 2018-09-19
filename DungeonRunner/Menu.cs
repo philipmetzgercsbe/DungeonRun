@@ -46,9 +46,13 @@ namespace DungeonRunner
 
         public void ShowResources()
         {
-            Console.WriteLine("LP:" + MyCharacter.ShowLifePoints() + "MP:" + MyCharacter.ShowManaPoints()+"Gold:" + MyCharacter.ShowCurrentGold() + "\n" + "Inventory:" + MyCharacter.ShowItems());
-
-            //ref Char
+            string CharLP = MyCharacter.ShowLifePoints().ToString();
+            string CharMP = MyCharacter.ShowManaPoints().ToString();
+            string CharGold = MyCharacter.ShowCurrentGold().ToString();
+            string Inventory = MyCharacter.ShowItems().ToString();
+            Console.WriteLine("LP: {0} MP: {1} Gold: {2} \n Inventory: {3}" , CharLP, CharMP, CharGold, Inventory);
+            
+          
 
         }
 
@@ -132,6 +136,7 @@ namespace DungeonRunner
         {
             Console.WriteLine("You enter the Dungeon and encounter a Monster");
             Room StartingRoom = new Room(1, 1);
+           
             //Call Game Constructor with Character Object;
             //show individual menus
         }
