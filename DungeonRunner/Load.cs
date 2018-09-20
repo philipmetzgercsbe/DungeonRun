@@ -26,7 +26,9 @@ namespace DungeonRunner
         {
             using (StreamReader reader = new StreamReader(ChoosenPath + character + ChoosenFileEnd))
             {
-                Console.WriteLine("Here is a list of characters:");
+                Console.WriteLine("╔=-------------=°=-------------=╗");
+                Console.WriteLine("╠-Here is a list of characters:-╣");
+                Console.WriteLine("╚=-------------===-------------=╝");
                 string[] s;
                 do
                 {
@@ -39,7 +41,9 @@ namespace DungeonRunner
         }
         public void LoadCharacter()
         {
-            Console.WriteLine("Press [1] to load .json file\nPress [2] to load .txt file");
+            Console.WriteLine("╔=----------------------------=°=---------------------------=╗");
+            Console.WriteLine("╠-Press [1] to load .json file | Press [2] to load .txt file-╣");
+            Console.WriteLine("╚=----------------------------===---------------------------=╝");
             FileEnd = Convert.ToInt32(Console.ReadLine());
             if (FileEnd == 1)
             {
