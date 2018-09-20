@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DungeonRunner
 {
@@ -34,7 +35,7 @@ namespace DungeonRunner
                    
                     RangerAbilitiesList.Add(new Ability(_ManaCost[i], _AbilityDMG[i], _RangerAbilities[i]));
                     //General ClassName Abilitygenerationblock 
-                    Abilities.Add(_RangerAbilities[i], RangerAbilitiesList); 
+                    Abilities.Add("Ranger", RangerAbilitiesList); 
                 }
             }
             else if (Name == "Mage")
@@ -42,7 +43,7 @@ namespace DungeonRunner
                 for (int i = 0; i <= _MageAbilities.Length; i++)
                 {
                     MageAbilitiesList.Add(new Ability(_ManaCost[i], _AbilityDMG[i], _MageAbilities[i]));
-                    Abilities.Add(_MageAbilities[i], MageAbilitiesList);
+                    Abilities.Add("Mage", MageAbilitiesList);
                 }
 
             }
@@ -51,7 +52,7 @@ namespace DungeonRunner
                 for (int i = 0; i <= _RogueAbilities.Length; i++)
                 {
                     RogueAbilitesList.Add(new Ability(_ManaCost[i], _AbilityDMG[i], _RogueAbilities[i]));   
-                    Abilities.Add(_RogueAbilities[i], RogueAbilitesList);
+                    Abilities.Add("Rogue", RogueAbilitesList);
                 }
 
             }
@@ -60,19 +61,15 @@ namespace DungeonRunner
                 for (int i = 0; i <= _BarbarianAbilites.Length; i++)
                 {
                     BarbarianAbilitiesList.Add(new Ability(_ManaCost[i], _AbilityDMG[i], _BarbarianAbilites[i]));
-                    Abilities.Add(_BarbarianAbilites[i], BarbarianAbilitiesList);
+                    Abilities.Add("Barbarian", BarbarianAbilitiesList);
                 }
 
             }
         }
 
-        public void getAbilities()
+        public List<Ability> GetAbilities()
         {
-            foreach (var ability in Abilities)
-            {
-                Console.WriteLine("Spellname:" +ability.Value);
-                
-            }
+           return Abilities.ToList<Ability>();
         }
             
         

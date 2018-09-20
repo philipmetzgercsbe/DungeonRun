@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace DungeonRunner
@@ -111,6 +112,15 @@ namespace DungeonRunner
                     this.Gold -= Trader.SellPrice1;
                 }
                 //Remove Item with the Name and re-add it with new values
+            }else if (Items.Count >= 2 && item.ItemName1 == "Mana Potion")
+            {
+                for (int i = 0; i < Items.Count; i++)
+                {
+                    var ItemsToReplace = Items.Find(Item => Item.ItemName1 == item.ItemName1);
+                    Items.Remove(ItemsToReplace);
+                    Items.Add(new Item("Mana Potion", Trader.SellPrice1));
+                    this.Gold -= Trader.SellPrice1;
+                }
             }
             else
             {
@@ -156,31 +166,38 @@ namespace DungeonRunner
         public void UseSpell(Ability ability)
         {
             //Get all Abilites
-            this.CharClass.getAbilities();
+            this.CharClass.GetAbilities();
             if (this.MP == 0)
             {
                 Console.WriteLine("You cannot use advanced Abilities, drink a Mana Potion to restore Mana");
+
                
-            }else if(this.MP <= 0)
+            }else if(this.MP >= 0)
             { 
                 int ChoosenAbility = Int32.Parse(Console.ReadLine());
                 switch (ChoosenAbility)
                 {
-                    case 1: //Access Ability remove MP from Character
+                    case 1:
+                        MyCharacter.Abilites(0);//Access Ability remove MP from Character
                         break;
-                    case 2: 
+                    case 2:
+                        MyCharacter.Abilites(1);
                         break;
-                    case 3: 
+                    case 3:
+                        MyCharacter.Abilites(2);
                         break;
-                    case 4: 
+                    case 4:
+                        MyCharacter.Abilites(3);
+                        //read values from Abilites remove 
                         break;
-                    default: 
+                    default:
+                        MyCharacter.Abilites(0);
                         break;
                         
                 }
             }
             
-            //Access Ability list and get MPCost and remove LP from Monster
+            //Access Ability list and get MPCost and remove LP from Monster and Mana from Character
             
         }
 
@@ -194,10 +211,18 @@ namespace DungeonRunner
              
         }
 
-        public void Attack(Monster monster)
+      
+
+        public void Attack(Monster monster, Character character)
         {
-            //Keep this function empty
+            throw new NotImplementedException();
+        }
+
+        public void Ability()
+        {
             
+
+
 
         }
     }

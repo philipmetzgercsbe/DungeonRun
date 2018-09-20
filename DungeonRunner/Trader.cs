@@ -7,7 +7,7 @@ namespace DungeonRunner
     {
         private List<Item> TraderItems = new List<Item>();
         private int SellPrice;
-        private List<string> PotionName;
+        private string[] PotionName = {"Health Potion", "Mana Potion"};
 
         public List<Item> Items
         {
@@ -21,7 +21,7 @@ namespace DungeonRunner
             set => SellPrice = value;
         }
 
-        public List<string> PotionName1
+        public string[] PotionName1
         {
             get => PotionName;
             set => PotionName = value;
@@ -30,11 +30,9 @@ namespace DungeonRunner
         public Trader(int sellPrice)
         {
             SellPrice = sellPrice;
-            PotionName.Add("Health Potion");
-            PotionName.Add("Mana Potion");
             for (int i = 0; i < 2; i++)
             {
-                TraderItems.Add(new Item(PotionName.ge("Health Potion"),));//Add Potions to Trader
+                TraderItems.Add(new Item(PotionName[i],sellPrice));//Add Potions to Trader
             }
         }
 
@@ -42,8 +40,9 @@ namespace DungeonRunner
         {
             foreach (var item in TraderItems)
             {
-                Console.WriteLine("Item: " + item);
                 //Print all Potions in Inventory 
+                Console.WriteLine("Item: " + item);
+                
 
             }
         }
@@ -65,7 +64,7 @@ namespace DungeonRunner
         {
             //remove Item from Trader
             TraderItems.Remove(item);
-            throw new NotImplementedException();
+            
         }
     }
 }
