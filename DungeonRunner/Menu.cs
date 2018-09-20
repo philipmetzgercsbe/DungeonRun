@@ -58,11 +58,17 @@ namespace DungeonRunner
 
         public void ShowCharMenu()
         {
-            Console.WriteLine("Choose your name Hero");
+            Console.WriteLine("╔=---------=°=---------=╗");
+            Console.WriteLine("╠-Choose your name Hero-╣");
+            Console.WriteLine("╚=---------===---------=╝");
             string name = Console.ReadLine();
-            Console.WriteLine("Enter your Age {0}", name);
+            Console.WriteLine("╔=----------=°=----------=╗");
+            Console.WriteLine("╠-Enter your Age {0}     -╣", name);
+            Console.WriteLine("╚=----------===----------=╝");
             int age = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("Chooose your Class {0}", name);
+            Console.WriteLine("╔=----------=°=----------=╗");
+            Console.WriteLine("╠-Chooose your Class {0} -╣", name);
+            Console.WriteLine("╚=----------===----------=╝");
             Console.WriteLine("Press [1] to be a Ranger\n Press [2] to be a Rogue\n Press [3] to be a Mage\n Press [4] to be a Barbarian");
             int CharClassOption = Int32.Parse(Console.ReadLine());
             switch (CharClassOption)
@@ -94,9 +100,13 @@ namespace DungeonRunner
         public void ShowSaveMenu() //Character
         {
             Save Save = new Save();
-            Console.WriteLine("Save your Character");
-            Console.WriteLine("Enter your file option");
-            Console.WriteLine("txt | json");
+            Console.WriteLine("╔=--------=°=--------=╗");
+            Console.WriteLine("╠-Save your Character-╣");
+            Console.WriteLine("╚=--------===--------=╝");
+            Console.WriteLine("╔=---------=°=----------=╗");
+            Console.WriteLine("╠-Enter your file option-╣");
+            Console.WriteLine("╠--------txt | json------╣");
+            Console.WriteLine("╚=---------===----------=╝");
             string option = Console.ReadLine();
             switch (option)
             {
@@ -124,7 +134,9 @@ namespace DungeonRunner
         public void ShowLoadMenu()
         {
             Load load = new Load();
-            Console.WriteLine("In which file is your character");
+            Console.WriteLine("╔=--------------=°=--------------=╗");
+            Console.WriteLine("╠-In which file is your character-╣");
+            Console.WriteLine("╚=--------------===--------------=╝");
             string CharName = Console.ReadLine();
             load.CheckIfCharExists(CharName);
             load.LoadCharacter();
@@ -134,7 +146,9 @@ namespace DungeonRunner
 
         public void GameStart()
         {
-            Console.WriteLine("You enter the Dungeon and encounter a Monster");
+            Console.WriteLine("╔=---------------------=°=---------------------=╗");
+            Console.WriteLine("╠-You enter the Dungeon and encounter a Monster-╣");
+            Console.WriteLine("╚=---------------------===---------------------=╝");
             Room StartingRoom = new Room(1, 1);
            
             //Call Game Constructor with Character Object;
@@ -154,7 +168,9 @@ namespace DungeonRunner
                 Console.WriteLine(Ability);   
             }
             //Iterate through Abilities
-            Console.WriteLine("Choose your Ability:");
+            Console.WriteLine("╔=---------=°=--------=╗");
+            Console.WriteLine("╠-Choose your Ability:-╣");
+            Console.WriteLine("╚=---------===--------=╝");
             string Spellname = Console.ReadLine();
             //UseSpell(Spellname)
             MyCharacter.UseSpell(Spellname);
