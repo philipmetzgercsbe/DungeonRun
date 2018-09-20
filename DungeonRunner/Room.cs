@@ -63,5 +63,14 @@ namespace DungeonRunner
                 this.Round++;
             }
         }
+
+        private void isDone()
+        {
+            if (Enemy.IsDead == true )
+            {
+               
+                
+            }
+        }
     }
 }

@@ -39,7 +39,11 @@ namespace DungeonRunner
 
         static void EndGame()
         {
-            Environment.Exit(0);
+            if (MyCharacter.Equals(null))
+            {
+                Environment.Exit(0);
+            }
+            
         }
 
        private static void RestartGame()

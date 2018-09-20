@@ -12,6 +12,8 @@ namespace DungeonRunner
     public class Menu
     {
         //Reference all used Objects
+        public Monster Enemy;
+        public Room Room;
         public Character MyCharacter;
         public void ShowMainMenu()
         {
@@ -139,7 +141,7 @@ namespace DungeonRunner
             Console.WriteLine("╚=--------------===--------------=╝");
             string CharName = Console.ReadLine();
             load.CheckIfCharExists(CharName);
-            load.LoadCharacter();
+            load.LoadCharacter(MyCharacter);
             ShowMainMenu();
            
         }
@@ -149,15 +151,27 @@ namespace DungeonRunner
             Console.WriteLine("╔=---------------------=°=---------------------=╗");
             Console.WriteLine("╠-You enter the Dungeon and encounter a Monster-╣");
             Console.WriteLine("╚=---------------------===---------------------=╝");
-            Room StartingRoom = new Room(1, 1);
-           
+            Room = new Room(1, 1);
+            IncreaseRoom();
             //Call Game Constructor with Character Object;
             //show individual menus
         }
 
+        private void IncreaseRoom()
+        {
+            if (Room == null)
+            {
+                for (int i = 0; i <= Room.Level1; i++)
+                {
+                    Room = new Room(i, i);
+                    FightMenu();
+                }
+            }
+        }
+
         private void WriteToCharObj(string name, int age, string charClass)
         {
-            Character MyCharacter = new Character(name, age, charClass);
+             MyCharacter = new Character(name, age, charClass);
         }
 
         private void FightMenu()
@@ -169,19 +183,36 @@ namespace DungeonRunner
             Console.WriteLine("╚=---------===--------=╝");
             string Spellname = Console.ReadLine();
             //UseSpell(Spellname)
-            MyCharacter.UseSpell(Spellname => ability);
+            MyCharacter.UseSpell(ability => ability.SpellName == Spellname);
             if (Room.round >= 2)
             {
-                MyCharacter.ShowItems();
-                string ItemName = Console.ReadLine();
-                MyCharacter.UseItem();
+                bool useItem = false;
+                Console.WriteLine("Do you want to use a Item");
+                Console.WriteLine("Press [1] for yes | Press [2] for no");
+                int itemChoice = Int32.Parse(Console.ReadLine());
+                if (itemChoice == 1)
+                {
+                    MyCharacter.ShowItems();
+                    string ItemName = Console.ReadLine();
+                    MyCharacter.UseItem(item => item.ItemName == ItemName);
+                }
+                else
+                {
+                    return;
+                }
+                
+            }
+
+            
+
+            if (MyCharacter.ShowLifePoints() == 0 )
+            {
+                MyCharacter = null;
+                
             }
            
-            //Get Curr Room and
-            //Check if enemy or self alive
-            //LP += GainStats + MP+=GainStats + CurrentGold += GoldtoDrop
-            //If dead 
-            MyCharacter = null;
+            
+           
 
         }
     }
