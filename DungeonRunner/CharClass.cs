@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 
 namespace DungeonRunner
 {
     public class CharClass
     {
-        private Dictionary<string, List<Ability>> Abilities = new Dictionary<string, List<Ability>>();
+        private Dictionary<string,Ability> Abilities = new Dictionary<string, Ability>();
         private string Name;
         //All Ability names and saved in an Array. Will be used to create Classes with for loop
         private string[] _MageAbilities = {"Use Wand", "Fireball", "Frostbolt", "Pyroblast"}; //[0] is basic, [1] a weak Ability, [2] is the mediocre Ability and [3] is the strongest
@@ -22,10 +23,7 @@ namespace DungeonRunner
         }
         public CharClass(string name)
         {
-            List<Ability> RangerAbilitiesList = new List<Ability>();
-            List<Ability> MageAbilitiesList = new List<Ability>();
-            List<Ability> RogueAbilitesList = new List<Ability>();
-            List<Ability> BarbarianAbilitiesList = new List<Ability>();
+            
             Name = name;
             if (Name == "Ranger")   // Check Classname and their Abilites. 
             {
@@ -33,17 +31,17 @@ namespace DungeonRunner
                 for (int i = 0; i <= _RangerAbilities.Length; i++)
                 {
                    
-                    RangerAbilitiesList.Add(new Ability(_ManaCost[i], _AbilityDMG[i], _RangerAbilities[i]));
+                   
                     //General ClassName Abilitygenerationblock 
-                    Abilities.Add("Ranger", RangerAbilitiesList); 
+                    Abilities.Add(_RangerAbilities[i] ,new Ability(_ManaCost[i], _AbilityDMG[i], _RangerAbilities[i])); 
                 }
             }
             else if (Name == "Mage")
             {
                 for (int i = 0; i <= _MageAbilities.Length; i++)
                 {
-                    MageAbilitiesList.Add(new Ability(_ManaCost[i], _AbilityDMG[i], _MageAbilities[i]));
-                    Abilities.Add("Mage", MageAbilitiesList);
+                    
+                    Abilities.Add(_MageAbilities[i],new Ability(_ManaCost[i], _AbilityDMG[i], _MageAbilities[i]) );
                 }
 
             }
@@ -51,8 +49,8 @@ namespace DungeonRunner
             {
                 for (int i = 0; i <= _RogueAbilities.Length; i++)
                 {
-                    RogueAbilitesList.Add(new Ability(_ManaCost[i], _AbilityDMG[i], _RogueAbilities[i]));   
-                    Abilities.Add("Rogue", RogueAbilitesList);
+                   
+                    Abilities.Add(_RogueAbilities[i], new Ability(_ManaCost[i], _AbilityDMG[i], _RogueAbilities[i]));
                 }
 
             }
@@ -60,17 +58,20 @@ namespace DungeonRunner
             {
                 for (int i = 0; i <= _BarbarianAbilites.Length; i++)
                 {
-                    BarbarianAbilitiesList.Add(new Ability(_ManaCost[i], _AbilityDMG[i], _BarbarianAbilites[i]));
-                    Abilities.Add("Barbarian", BarbarianAbilitiesList);
+                    
+                    Abilities.Add(_BarbarianAbilites[i], new Ability(_ManaCost[i], _AbilityDMG[i], _BarbarianAbilites[i]));
                 }
 
             }
         }
 
-        public List<Ability> GetAbilities()
+        public List<string> getAbilities()
         {
-           return Abilities.ToList<Ability>();
+            var ListAbility = Abilities.Select(kvp => kvp.Key).ToList();
+            return ListAbility;
         }
+        
+      
             
         
     }
