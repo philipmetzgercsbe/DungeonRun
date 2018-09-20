@@ -65,7 +65,7 @@ namespace DungeonRunner
             }
         }
 
-        public List<string> getAbilities()
+        public List<string> GetAbilities()
         {
             var ListAbility = Abilities.Select(kvp => kvp.Key).ToList();
             return ListAbility;
