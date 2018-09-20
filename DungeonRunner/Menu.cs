@@ -162,23 +162,19 @@ namespace DungeonRunner
 
         private void FightMenu()
         {
-            Console.WriteLine(MyCharacter.Abilities);
-            foreach (var Ability in MyCharacter.Abilities)
-            {
-                Console.WriteLine(Ability);   
-            }
+            MyCharacter.ShowAbility();
             //Iterate through Abilities
             Console.WriteLine("╔=---------=°=--------=╗");
             Console.WriteLine("╠-Choose your Ability:-╣");
             Console.WriteLine("╚=---------===--------=╝");
             string Spellname = Console.ReadLine();
             //UseSpell(Spellname)
-            MyCharacter.UseSpell(Spellname);
+            MyCharacter.UseSpell(Spellname => ability);
             if (Room.round >= 2)
             {
                 MyCharacter.ShowItems();
                 string ItemName = Console.ReadLine();
-                MyCharacter.UseItem(item:Item);
+                MyCharacter.UseItem();
             }
            
             //Get Curr Room and

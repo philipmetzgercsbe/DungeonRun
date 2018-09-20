@@ -39,7 +39,7 @@ namespace DungeonRunner
                
             } 
         }
-        public void LoadCharacter()
+        public void LoadCharacter(Character FileName)
         {
             Console.WriteLine("╔=----------------------------=°=---------------------------=╗");
             Console.WriteLine("╠-Press [1] to load .json file | Press [2] to load .txt file-╣");
@@ -50,7 +50,8 @@ namespace DungeonRunner
               
                 ChoosenFileEnd = JsonFileEnd;
                 ChoosenPath = JsonPath;
-
+               Character MyCharacter = JsonConvert.DeserializeObject<Character>(ChoosenPath + FileName + ChoosenFileEnd);
+                
             }
             else
             {

@@ -165,36 +165,22 @@ namespace DungeonRunner
 
         public void UseSpell(Ability ability)
         {
+            var SpellToUse = this.CharClass.GetAbilities();
             //Get all Abilites
             this.CharClass.GetAbilities();
             if (this.MP == 0)
             {
                 Console.WriteLine("You cannot use advanced Abilities, drink a Mana Potion to restore Mana");
+                var UsedSpell = SpellToUse.First();
+                this.MP -= UsedSpell.ManaCost1; //This line is unnecessary because the first spell costs nothing
 
+            }
+            else if(this.MP >= 0)
+            {
                
-            }else if(this.MP >= 0)
-            { 
-                int ChoosenAbility = Int32.Parse(Console.ReadLine());
-                switch (ChoosenAbility)
-                {
-                    case 1:
-                        MyCharacter.Abilites(0);//Access Ability remove MP from Character
-                        break;
-                    case 2:
-                        MyCharacter.Abilites(1);
-                        break;
-                    case 3:
-                        MyCharacter.Abilites(2);
-                        break;
-                    case 4:
-                        MyCharacter.Abilites(3);
-                        //read values from Abilites remove 
-                        break;
-                    default:
-                        MyCharacter.Abilites(0);
-                        break;
-                        
-                }
+                var UsedSpell = SpellToUse.Find(abilityName => abilityName.SpellName1 == ability.SpellName1);
+                this.MP -= UsedSpell.ManaCost1;
+
             }
             
             //Access Ability list and get MPCost and remove LP from Monster and Mana from Character
@@ -215,13 +201,18 @@ namespace DungeonRunner
 
         public void Attack(Monster monster, Character character)
         {
+            //Keep Empty
             throw new NotImplementedException();
         }
 
-        public void Ability()
+        public void ShowAbility()
         {
-            
 
+            var MyCharAbilites = this.CharClass.GetAbilities();
+            foreach (var Ability in MyCharAbilites)
+            {
+                Console.WriteLine("Ability:",Ability);   
+            }
 
 
         }
