@@ -22,8 +22,9 @@ namespace DungeonRunner
             Start.ShowMainMenu();
             while (true)
             {
-                
-                
+                //Loop through the game and check Character Health
+                EndGame();
+
             }
             
            // MyCharacter = new Character();
@@ -37,9 +38,9 @@ namespace DungeonRunner
 
         }
 
-        static void EndGame()
+        public static void EndGame()
         {
-            if (MyCharacter.Equals(null))
+            if (Start.MyCharacter == null)
             {
                 Environment.Exit(0);
             }

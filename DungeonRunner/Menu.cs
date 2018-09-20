@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Resources;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Xml;
 
 namespace DungeonRunner
 {
-    
+
     public class Menu
     {
         //Reference all used Objects
@@ -37,6 +32,7 @@ namespace DungeonRunner
                     break;
                 default:
                     Console.WriteLine("No Input given");
+                    ShowMainMenu();
                     break;
             }
 
@@ -93,7 +89,8 @@ namespace DungeonRunner
             }
 
             Console.WriteLine("Your are done creating your Character");
-            ShowMainMenu();
+            //ShowMainMenu();
+            return;
 
             //Hallo
 
@@ -122,13 +119,16 @@ namespace DungeonRunner
                     Console.WriteLine("No option given");
                     break;
             }
+            
 
             if (File.Exists("DungeonRunner/Saves/Json/" + MyCharacter + ".json") ||
                 File.Exists("DungeonRunner/Saves/Txt/" + MyCharacter + ".txt"))
             {
                 Console.WriteLine("A Save File with the same Name already exists");
-                ShowMainMenu();
+                //ShowMainMenu();
+                
             }
+            return;
 
 
         }
@@ -142,7 +142,8 @@ namespace DungeonRunner
             string CharName = Console.ReadLine();
             load.CheckIfCharExists(CharName);
             load.LoadCharacter(MyCharacter);
-            ShowMainMenu();
+            //ShowMainMenu();
+            return;
            
         }
 
@@ -152,7 +153,13 @@ namespace DungeonRunner
             Console.WriteLine("╠-You enter the Dungeon and encounter a Monster-╣");
             Console.WriteLine("╚=---------------------===---------------------=╝");
             Room = new Room(1, 1);
-            IncreaseRoom();
+            if (Room.isDone() == true)
+            {
+                Room = null;
+                IncreaseRoom();
+
+            }
+            
             //Call Game Constructor with Character Object;
             //show individual menus
         }
@@ -181,10 +188,10 @@ namespace DungeonRunner
             Console.WriteLine("╔=---------=°=--------=╗");
             Console.WriteLine("╠-Choose your Ability:-╣");
             Console.WriteLine("╚=---------===--------=╝");
-            string Spellname = Console.ReadLine();
+            string spellname = Console.ReadLine();
             //UseSpell(Spellname)
-            MyCharacter.UseSpell(ability => ability.SpellName == Spellname);
-            if (Room.round >= 2)
+            MyCharacter.UseSpell(ability => ability.SpellName == spellname);
+            if (Room.Round >= 2)
             {
                 bool useItem = false;
                 Console.WriteLine("Do you want to use a Item");
@@ -203,12 +210,10 @@ namespace DungeonRunner
                 
             }
 
-            
-
-            if (MyCharacter.ShowLifePoints() == 0 )
+            if (MyCharacter.Lp == 0 )
             {
                 MyCharacter = null;
-                
+                 
             }
            
             

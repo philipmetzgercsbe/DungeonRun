@@ -1,13 +1,15 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DungeonRunner
 {
     public class Room
     {
+        public Trader Trader;
         public Monster Enemy;
         public Character MyCharacter;
         Random rand = new Random();
-        private int Round;
+        public int Round;
         private static int Level;
         private int StatsAfterVictory;
 
@@ -47,7 +49,7 @@ namespace DungeonRunner
           
             if (Level >= 1 && Level <= 200 && rand.Next(1,10) < 5)
             {
-             Trader Trader = new Trader(Math.Abs(StatsAfterVictory/2));   
+              Trader = new Trader(Math.Abs(StatsAfterVictory/2));   
             }
         }
 
@@ -55,7 +57,7 @@ namespace DungeonRunner
         {
             if (Round % 2 == 0)
             {
-
+                
                 this.Round++;
             }else if (Round % 2 == 1)
             {
@@ -64,13 +66,20 @@ namespace DungeonRunner
             }
         }
 
-        private void isDone()
+        public bool isDone()
         {
             if (Enemy.IsDead == true )
             {
-               
-                
+                Enemy = null;
+                Trader = null;
+
+                this.MyCharacter.Lp += Enemy.Lp;
+                this.MyCharacter.Mp += Enemy.Lp;
+                return true;
+
             }
+
+            return false;
         }
     }
 }

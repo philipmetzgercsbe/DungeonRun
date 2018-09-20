@@ -7,6 +7,7 @@ namespace DungeonRunner
 {
     public class Load
     {
+        public Character MyCharacter;
         private static string JsonPath = "DungeonRunner//Saves//Json";
         private static string TxtPath = "DungeonRunner//Saves//Txt";
         private static string JsonFileEnd = ".json";
@@ -22,7 +23,7 @@ namespace DungeonRunner
            
         }
 
-        public void Streamwithparams(Character character)
+        public void ReadStreamWithParams(Character character)
         {
             using (StreamReader reader = new StreamReader(ChoosenPath + character + ChoosenFileEnd))
             {
@@ -50,13 +51,14 @@ namespace DungeonRunner
               
                 ChoosenFileEnd = JsonFileEnd;
                 ChoosenPath = JsonPath;
-               Character MyCharacter = JsonConvert.DeserializeObject<Character>(ChoosenPath + FileName + ChoosenFileEnd);
+                MyCharacter = JsonConvert.DeserializeObject<Character>(ChoosenPath + FileName + ChoosenFileEnd);
                 
             }
             else
             {
                 ChoosenFileEnd = TxtFileEnd;
                 ChoosenPath = TxtPath;
+
             }
 
             
