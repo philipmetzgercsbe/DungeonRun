@@ -89,7 +89,7 @@ namespace DungeonRunner
             }
 
             Console.WriteLine("Your are done creating your Character");
-            //ShowMainMenu();
+            ShowMainMenu();
             return;
 
             //Hallo
@@ -142,8 +142,8 @@ namespace DungeonRunner
             string CharName = Console.ReadLine();
             load.CheckIfCharExists(CharName);
             load.LoadCharacter(MyCharacter);
-            //ShowMainMenu();
-            return;
+            ShowMainMenu();
+            
            
         }
 
