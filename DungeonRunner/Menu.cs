@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DungeonRunner
 {
@@ -181,7 +184,7 @@ namespace DungeonRunner
              MyCharacter = new Character(name, age, charClass);
         }
 
-        private void FightMenu()
+        private void FightMenu(CharClass Abilities)
         {
             MyCharacter.ShowAbility();
             //Iterate through Abilities
@@ -190,7 +193,19 @@ namespace DungeonRunner
             Console.WriteLine("╚=---------===--------=╝");
             string spellname = Console.ReadLine();
             //UseSpell(Spellname)
-            MyCharacter.UseSpell(ability => ability.SpellName == spellname);
+            //MyCharacter.UseSpell(ability => ability.SpellName == spellname);
+            //Option number 1
+            //MyCharacter.Where(ability => ability.SpellName == spellname).Foreach(ability => UseSpell(ability));
+            //Option number 2
+            /*Ability test = Abilities.GetAbilities().FirstOrDefault(x => x.SpellName1 = spellname);
+            if (test != null)
+            {
+                MyCharacter.UseSpell(test);
+            }*/
+            //Option number 3
+            //MyCharacter.Where(Ability => Ability.SpellName1 == spellname).Foreach(ability => UseSpell(ability));
+            
+            
             if (Room.Round >= 2)
             {
                 bool useItem = false;

@@ -21,6 +21,9 @@ namespace DungeonRunner
         {
             
         }
+
+     
+
         public CharClass(string name)
         {
             
