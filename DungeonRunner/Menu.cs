@@ -201,7 +201,7 @@ namespace DungeonRunner
                 {
                     MyCharacter.ShowItems();
                     string ItemName = Console.ReadLine();
-                    MyCharacter.UseItem(item => item.ItemName == ItemName);
+                    MyCharacter.UseItem(item => item.ItemName == item.ItemName);
                 }
                 else
                 {

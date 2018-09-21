@@ -7,6 +7,7 @@ namespace DungeonRunner
 {
     public class Character : Buy , Battle
     {
+        
         private Trader Trader;
         private CharClass CharClass;
         private List<Item> Items = new List<Item>();
@@ -208,8 +209,8 @@ namespace DungeonRunner
         public void ShowAbility()
         {
 
-            var MyCharAbilites = this.CharClass.GetAbilities();
-            foreach (var Ability in MyCharAbilites)
+            var myCharAbilites = this.CharClass.GetAbilities();
+            foreach (var Ability in myCharAbilites)
             {
                 Console.WriteLine("Ability:",Ability);   
             }
