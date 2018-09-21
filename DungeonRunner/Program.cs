@@ -20,13 +20,13 @@ namespace DungeonRunner
             CreateDirectorys();
             Start = new Menu();
             Start.ShowMainMenu();
-            while (true)
-            {
-                //Loop through the game and check Character Health
-                EndGame();
-
-            }
-            
+//            while (true)
+//            {
+//                //Loop through the game and check Character Health
+//                EndGame();
+//
+//            }
+//            
            // MyCharacter = new Character();
            
           

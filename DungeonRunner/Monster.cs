@@ -5,7 +5,7 @@ namespace DungeonRunner
     public class Monster : Battle
     {
 
-        private Random rand;
+       
         private int LP;
         private int DMG;
         private int GoldToDrop;
@@ -45,6 +45,7 @@ namespace DungeonRunner
 
         public void Attack(Monster monster,Character character)
         {
+            Random rand = new Random();
             monster = this;
             int Damage = rand.Next(DMG, DMG * 2);
             character.Lp -= Damage;
