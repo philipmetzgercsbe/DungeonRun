@@ -13,6 +13,8 @@ namespace DungeonRunner
         public Monster Enemy;
         public Room Room;
         public Character MyCharacter;
+        private CharClass Abilities;
+        private Item Itemss;
         public void ShowMainMenu()
         {
             Console.WriteLine("Welcome to Dungeon Runner");
@@ -184,7 +186,7 @@ namespace DungeonRunner
              MyCharacter = new Character(name, age, charClass);
         }
 
-        private void FightMenu(CharClass Abilities)
+        private void FightMenu() 
         {
             MyCharacter.ShowAbility();
             //Iterate through Abilities
@@ -197,11 +199,11 @@ namespace DungeonRunner
             //Option number 1
             //MyCharacter.Where(ability => ability.SpellName == spellname).Foreach(ability => UseSpell(ability));
             //Option number 2
-            /*Ability test = Abilities.GetAbilities().FirstOrDefault(x => x.SpellName1 = spellname);
+            Ability test = Abilities.GetAbilities().FirstOrDefault(ability => ability.SpellName1 == spellname);
             if (test != null)
             {
                 MyCharacter.UseSpell(test);
-            }*/
+            }
             //Option number 3
             //MyCharacter.Where(Ability => Ability.SpellName1 == spellname).Foreach(ability => UseSpell(ability));
             
@@ -216,6 +218,7 @@ namespace DungeonRunner
                 {
                     MyCharacter.ShowItems();
                     string ItemName = Console.ReadLine();
+                    
                     MyCharacter.UseItem(item => item.ItemName == item.ItemName);
                 }
                 else
