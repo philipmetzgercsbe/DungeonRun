@@ -13,12 +13,11 @@ namespace DungeonRunner
     public class Save
     {
         StreamWriter FileWriter;
-       
         
         public void WriteCharToTxt(Character character)
         {
             // Write to CharName.txt and load values from Character Object
-            FileWriter = new StreamWriter(@"DungeonRunner\\Saves\\Txt\\"+character + ".txt");
+            FileWriter = new StreamWriter(@"DungeonRunner\\Saves\\Txt\\"+character+ ".txt");
             // Call dynamic Object and write to file
             FileWriter.WriteLine(character.Name1);
             FileWriter.WriteLine(character.Age1);
