@@ -13,7 +13,7 @@ namespace DungeonRunner
         public Monster Enemy;
         public Room Room;
         public Character MyCharacter = new Character();
-        private CharClass Abilities;
+        private CharClass Abilities = new CharClass();
         private Item Items;
         public void ShowMainMenu()
         {
@@ -93,7 +93,9 @@ namespace DungeonRunner
                     break;
             }
 
-            Console.WriteLine("Your are done creating your Character");
+            string ClassName = this.MyCharacter.GetClassName();
+            string YourChar = "Your Character: Name:" + name + " Age:" + age + " Class:" + ClassName;  
+            Console.WriteLine("Your are done creating your Character\n {0}",YourChar);
             ShowMainMenu();
             return;
 
@@ -226,6 +228,9 @@ namespace DungeonRunner
             {
                 MyCharacter = null;
                  
+            }else if (Enemy.Lp == 0)
+            {
+                Enemy = null;
             }
            
             
