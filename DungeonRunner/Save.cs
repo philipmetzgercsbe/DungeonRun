@@ -19,15 +19,16 @@ namespace DungeonRunner
         public void WriteCharToTxt(Character character)
         {
             // Write to CharName.txt and load values from Character Object
-            FileWriter = new StreamWriter(@"DungeonRunner\\Saves\\Txt\\"+character.Name1 + ".txt");
-            // Call dynamic Object and write to file
-            FileWriter.WriteLine(character.Name1);
-            FileWriter.WriteLine(character.Age1);
-            FileWriter.WriteLine(character.Lp);
-            FileWriter.WriteLine(character.Mp);
-            
-            
-            
+            using (FileWriter = new StreamWriter(@"DungeonRunner\\Saves\\Txt\\" + character.Name1 + ".txt"))
+            {
+                // Call dynamic Object and write to file
+                FileWriter.WriteLine(character.Name1);
+                FileWriter.WriteLine(character.Age1);
+                FileWriter.WriteLine(character.Lp);
+                FileWriter.WriteLine(character.Mp);
+
+            }
+
 
         }
 
@@ -48,11 +49,13 @@ namespace DungeonRunner
             });;
 
 
-            FileWriter = new StreamWriter(@"DungeonRunner\\Saves\\Json\\" + character.Name1+ ".json", true);
+            using (FileWriter = new StreamWriter(@"DungeonRunner\\Saves\\Json\\" + character.Name1 + ".json", true))
+            {
                 string jsonobject = JsonConvert.SerializeObject(o);
                 FileWriter.Write(jsonobject);
-                
-            
+            }
+
+
         }
     }
 }
