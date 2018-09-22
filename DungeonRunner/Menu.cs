@@ -195,19 +195,14 @@ namespace DungeonRunner
             Console.WriteLine("╚=---------===--------=╝");
             string spellname = Console.ReadLine();
             //UseSpell(Spellname)
-            //MyCharacter.UseSpell(ability => ability.SpellName == spellname);
-            //Option number 1
-            //MyCharacter.Where(ability => ability.SpellName == spellname).Foreach(ability => UseSpell(ability));
-            //Option number 2
-            Ability test = Abilities.GetAbilities().FirstOrDefault(ability => ability.SpellName1 == spellname);
-            if (test != null)
+            if (spellname != null)
             {
-                MyCharacter.UseSpell(test);
+                MyCharacter.UseSpell(
+                    Abilities.GetAbilities().FirstOrDefault(ability => ability.SpellName1 == spellname));
+
             }
-            //Option number 3
-            //MyCharacter.Where(Ability => Ability.SpellName1 == spellname).Foreach(ability => UseSpell(ability));
-            
-            
+
+
             if (Room.Round >= 2)
             {
                 bool useItem = false;
@@ -218,7 +213,7 @@ namespace DungeonRunner
                 {
                     MyCharacter.ShowItems();
                     string ItemName = Console.ReadLine();
-                    MyCharacter.UseItem(item => item.ItemName == item.ItemName);
+                    MyCharacter.UseItem(MyCharacter.ShowItems().FirstOrDefault(item => item.ItemName1 == ItemName));
                 }
                 else
                 {
