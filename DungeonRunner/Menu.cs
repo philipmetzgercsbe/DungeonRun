@@ -160,6 +160,7 @@ namespace DungeonRunner
             Console.WriteLine("╠-You enter the Dungeon and encounter a Monster-╣");
             Console.WriteLine("╚=---------------------===---------------------=╝");
             Room = new Room(1, 1);
+            ShowResources();
             if (Room.isDone() == true)
             {
                 Room = null;
@@ -178,6 +179,7 @@ namespace DungeonRunner
                 for (int i = 0; i <= Room.Level1; i++)
                 {
                     Room = new Room(i, i);
+                    ShowResources();
                     FightMenu();
                 }
             }
@@ -221,7 +223,7 @@ namespace DungeonRunner
                 {
                     return;
                 }
-                
+                ShowResources();
             }
 
             if (MyCharacter.Lp == 0 )
