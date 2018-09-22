@@ -28,8 +28,19 @@ namespace DungeonRunner
 //            }
 //            
            // MyCharacter = new Character();
-           
-          
+
+           //Possible loop
+           /* while (Start.MyCharacter.Dead1 == false)
+            {
+                //show menu 
+                
+                if (Start.MyCharacter.Dead1 == true)
+                {
+                    EndGame();
+                    Start.MyCharacter = new Character();
+                }
+            }
+            */
 
             
             
