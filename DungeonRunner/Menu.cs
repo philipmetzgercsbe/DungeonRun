@@ -133,7 +133,7 @@ namespace DungeonRunner
                 //ShowMainMenu();
                 
             }
-            return;
+            ShowMainMenu();
 
 
         }
