@@ -31,7 +31,7 @@ namespace DungeonRunner
             if (Name == "Ranger")   // Check Classname and their Abilites. 
             {
                 
-                for (int i = 0; i <= _RangerAbilities.Length; i++)
+                for (int i = 0; i <= _RangerAbilities.Length-1; i++)
                 {
                    
                    
@@ -41,7 +41,7 @@ namespace DungeonRunner
             }
             else if (Name == "Mage")
             {
-                for (int i = 0; i <= _MageAbilities.Length; i++)
+                for (int i = 0; i <= _MageAbilities.Length-1; i++)
                 {
                     
                     Abilities.Add(_MageAbilities[i],new Ability(_ManaCost[i], _AbilityDMG[i], _MageAbilities[i]) );
@@ -50,7 +50,7 @@ namespace DungeonRunner
             }
             else if (Name == "Rogue")
             {
-                for (int i = 0; i <= _RogueAbilities.Length; i++)
+                for (int i = 0; i <= _RogueAbilities.Length-1; i++)
                 {
                    
                     Abilities.Add(_RogueAbilities[i], new Ability(_ManaCost[i], _AbilityDMG[i], _RogueAbilities[i]));
@@ -59,7 +59,7 @@ namespace DungeonRunner
             }
             else if (Name == "Barbarian")
             {
-                for (int i = 0; i <= _BarbarianAbilites.Length; i++)
+                for (int i = 0; i <= _BarbarianAbilites.Length-1; i++)
                 {
                     
                     Abilities.Add(_BarbarianAbilites[i], new Ability(_ManaCost[i], _AbilityDMG[i], _BarbarianAbilites[i]));
