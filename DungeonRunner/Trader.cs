@@ -9,6 +9,10 @@ namespace DungeonRunner
         private int SellPrice;
         private string[] PotionName = {"Health Potion", "Mana Potion"};
 
+        public Trader()
+        {
+        }
+
         public List<Item> Items
         {
             get => TraderItems;

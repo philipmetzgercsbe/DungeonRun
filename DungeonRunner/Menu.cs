@@ -12,9 +12,9 @@ namespace DungeonRunner
         //Reference all used Objects
         public Monster Enemy;
         public Room Room;
-        public Character MyCharacter;
+        public Character MyCharacter = new Character();
         private CharClass Abilities;
-        private Item Itemss;
+        private Item Items;
         public void ShowMainMenu()
         {
             Console.WriteLine("Welcome to Dungeon Runner");
@@ -66,7 +66,7 @@ namespace DungeonRunner
             Console.WriteLine("╚=---------===---------=╝");
             string name = Console.ReadLine();
             Console.WriteLine("╔=----------=°=----------=╗");
-            Console.WriteLine("╠-Enter your Age {0}     -╣", name);
+            Console.WriteLine("╠-Enter your Age     {0} -╣", name);
             Console.WriteLine("╚=----------===----------=╝");
             int age = Int32.Parse(Console.ReadLine());
             Console.WriteLine("╔=----------=°=----------=╗");
