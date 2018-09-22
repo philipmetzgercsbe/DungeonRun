@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
+using System.Threading;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -13,12 +14,12 @@ namespace DungeonRunner
     public class Save
     {
         StreamWriter FileWriter;
-       
+        public Character MyCharacter = new Character();
         
         public void WriteCharToTxt(Character character)
         {
             // Write to CharName.txt and load values from Character Object
-            FileWriter = new StreamWriter(@"DungeonRunner\\Saves\\Txt\\"+character + ".txt");
+            FileWriter = new StreamWriter(@"DungeonRunner\\Saves\\Txt\\"+character.Name1 + ".txt");
             // Call dynamic Object and write to file
             FileWriter.WriteLine(character.Name1);
             FileWriter.WriteLine(character.Age1);
@@ -47,7 +48,7 @@ namespace DungeonRunner
             });;
 
 
-            FileWriter = new StreamWriter(@"DungeonRunner\\Saves\\Json\\" + character + ".json", true);
+            FileWriter = new StreamWriter(@"DungeonRunner\\Saves\\Json\\" + character.Name1+ ".json", true);
                 string jsonobject = JsonConvert.SerializeObject(o);
                 FileWriter.Write(jsonobject);
                 

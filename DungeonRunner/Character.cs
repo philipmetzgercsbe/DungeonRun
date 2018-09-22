@@ -8,8 +8,8 @@ namespace DungeonRunner
     public class Character : Buy , Battle
     {
         
-        private Trader Trader;
-        private CharClass CharClass;
+        private Trader Trader = new Trader();
+        private CharClass CharClass = new CharClass();
         private List<Item> Items = new List<Item>();
         private string Name;
         private int Age;
