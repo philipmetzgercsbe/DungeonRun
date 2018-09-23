@@ -33,8 +33,6 @@ namespace DungeonRunner
                 
                 for (int i = 0; i <= _RangerAbilities.Length-1; i++)
                 {
-                   
-                   
                     //General ClassName Abilitygenerationblock 
                     Abilities.Add(_RangerAbilities[i] ,new Ability(_ManaCost[i], _AbilityDMG[i], _RangerAbilities[i])); 
                 }

@@ -54,6 +54,7 @@ namespace DungeonRunner
                 ChoosenFileEnd = JsonFileEnd;
                 ChoosenPath = JsonPath;
                 MyCharacter = JsonConvert.DeserializeObject<Character>(ChoosenPath + character.Name1 + ChoosenFileEnd);
+                Console.WriteLine("You are: {0}",MyCharacter);
                 
             }
             else

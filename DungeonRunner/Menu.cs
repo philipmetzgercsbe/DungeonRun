@@ -145,9 +145,9 @@ namespace DungeonRunner
             Console.WriteLine("╔=--------------=°=--------------=╗");
             Console.WriteLine("╠-In which file is your character-╣");
             Console.WriteLine("╚=--------------===--------------=╝");
-            string CharName = Console.ReadLine();
-            MyCharacter.Name1 = CharName;
-            load.CheckIfCharExists(CharName);
+            string charName = Console.ReadLine();
+            MyCharacter.Name1 = charName;
+            load.CheckIfCharExists(charName);
             load.LoadCharacter(MyCharacter);
             ShowMainMenu();
             
@@ -173,9 +173,10 @@ namespace DungeonRunner
 
         private void IncreaseRoom()
         {
+            int roomLevel = this.Room.Level1+1;
             if (Room == null)
             {
-                for (int i = 0; i <= Room.Level1; i++)
+                for (int i = 0; i <= roomLevel; i++)
                 {
                     Room = new Room(i, i);
                     FightMenu();
@@ -188,7 +189,7 @@ namespace DungeonRunner
              MyCharacter = new Character(name, age, charClass);
         }
 
-        private void FightMenu() 
+        public void FightMenu() 
         {
             MyCharacter.ShowAbility();
             //Iterate through Abilities

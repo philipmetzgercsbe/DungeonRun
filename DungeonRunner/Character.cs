@@ -179,8 +179,8 @@ namespace DungeonRunner
             else if(this.MP >= 0)
             {
                
-                var UsedSpell = SpellToUse.Find(abilityName => abilityName.SpellName1 == ability.SpellName1);
-                this.MP -= UsedSpell.ManaCost1;
+                var usedSpell = SpellToUse.Find(abilityName => abilityName.SpellName1 == ability.SpellName1);
+                this.MP -= usedSpell.ManaCost1;
 
             }
             

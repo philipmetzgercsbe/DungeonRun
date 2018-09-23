@@ -67,6 +67,7 @@ namespace DungeonRunner
             {
                 this.IsDead = true;
                 Console.WriteLine("The Monster died and you earned {0} Gold and gained + {1} Life and Mana",GoldToDrop,LP);
+                
                
             }
 

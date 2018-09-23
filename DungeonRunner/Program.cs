@@ -17,9 +17,15 @@ namespace DungeonRunner
         static void Main(string[] args)
         {
             
-            CreateDirectorys();
+            CreateDirectories();
             Start = new Menu();
             Start.ShowMainMenu();
+            while (Start.MyCharacter != null)
+            {
+                Start.ShowResources();
+                Start.FightMenu();
+
+            }
 //            while (true)
 //            {
 //                //Loop through the game and check Character Health
@@ -64,7 +70,7 @@ namespace DungeonRunner
            Start.ShowMainMenu();
        }
 
-        private static void CreateDirectorys()
+        private static void CreateDirectories()
         {
             if (!Directory.Exists("DungeonRunner//Saves"))
             {

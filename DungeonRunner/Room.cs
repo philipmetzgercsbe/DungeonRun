@@ -75,11 +75,11 @@ namespace DungeonRunner
 
                 this.MyCharacter.Lp += Enemy.Lp;
                 this.MyCharacter.Mp += Enemy.Lp;
-                return true;
+                return false;
 
             }
 
-            return false;
+            return true;
         }
     }
 }
