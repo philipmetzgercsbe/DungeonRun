@@ -66,7 +66,7 @@ namespace DungeonRunner
 
             
         }
-        public void ReadStreamWithTxt(Character character1)
+        public void ReadStreamWithTxt(Character character)
         {
             
            Console.WriteLine("╔=-------------=°=-------------=╗");
@@ -90,7 +90,7 @@ namespace DungeonRunner
             } */
             //svar lines = File.ReadLines(
                // "C:\\Users\\vmadmin\\RiderProjects\\DungeonRun\\DungeonRunner\\bin\\Debug\\DungeonRunner\\Saves\\Txt\\zeta.txt");
-            var lines = File.ReadLines(TxtPath +character1.Name1+TxtFileEnd);//Dr Fehler ligt am character.Name1. D igab stimmt nit überi mit .Name1
+            var lines = File.ReadLines(TxtPath +character.Name1+TxtFileEnd);//Dr Fehler ligt am character.Name1. D igab stimmt nit überi mit .Name1
             foreach (var line in lines)
             {
                 Console.WriteLine(line);

@@ -127,12 +127,14 @@ namespace DungeonRunner
             }
             
 
-            if (File.Exists("DungeonRunner/Saves/Json/" + MyCharacter + ".json") ||
-                File.Exists("DungeonRunner/Saves/Txt/" + MyCharacter + ".txt"))
+            if (File.Exists("DungeonRunner/Saves/Json/" + MyCharacter.Name1 + ".json") ||
+                File.Exists("DungeonRunner/Saves/Txt/" + MyCharacter.Name1 + ".txt"))
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("A Save File with the same Name already exists");
+                Console.ForegroundColor = ConsoleColor.White;
                 //ShowMainMenu();
-                
+
             }
             ShowMainMenu();
 
