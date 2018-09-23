@@ -82,7 +82,15 @@ namespace DungeonRunner
 
         public List<Item> ShowItems()
         {
-            return this.Items;
+            if (Items.Count == 0)
+            {
+                return this.Items;
+            }
+            else
+            {
+                return this.Items;
+            }
+            
         }
 
         public int ShowLifePoints()
@@ -210,9 +218,9 @@ namespace DungeonRunner
         {
 
             var myCharAbilites = this.CharClass.GetAbilities();
-            foreach (var Ability in myCharAbilites)
+            foreach (var AbilityName in myCharAbilites)
             {
-                Console.WriteLine("Ability:",Ability);   
+                Console.WriteLine("Ability:",AbilityName.SpellName1);   
             }
 
 

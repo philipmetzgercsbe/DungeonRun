@@ -26,6 +26,7 @@ namespace DungeonRunner
                 FileWriter.WriteLine(character.Age1);
                 FileWriter.WriteLine(character.Lp);
                 FileWriter.WriteLine(character.Mp);
+                FileWriter.WriteLine(character.GetClassName());
 
             }
 
@@ -46,7 +47,8 @@ namespace DungeonRunner
                     Name =  character.Name1,
                     Age = character.Age1,
                     LP = character.Lp,
-                    MP = character.Mp
+                    MP = character.Mp,
+                    Class = character.GetClassName()
                 }
             });;
 
