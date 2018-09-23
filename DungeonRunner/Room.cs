@@ -19,6 +19,7 @@ namespace DungeonRunner
             Level = level;
             StatsAfterVictory = statsAfterVictory;
             SpawnTrader();
+            IncrementLevel();
         }
 
         public int Round1
@@ -75,11 +76,11 @@ namespace DungeonRunner
 
                 this.MyCharacter.Lp += Enemy.Lp;
                 this.MyCharacter.Mp += Enemy.Lp;
-                return false;
+                return true;
 
             }
 
-            return true;
+            return false;
         }
     }
 }
