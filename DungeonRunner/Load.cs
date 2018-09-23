@@ -70,7 +70,7 @@ namespace DungeonRunner
         {
             
            Console.WriteLine("╔=-------------=°=-------------=╗");
-           Console.WriteLine("╠-Here is a list of characters:-╣");
+           Console.WriteLine("╠-Here are your stats:         -╣");
            Console.WriteLine("╚=-------------===-------------=╝");
            
             /*using (StreamReader reader = new StreamReader(TxtPath + character.Name1+TxtFileEnd))
