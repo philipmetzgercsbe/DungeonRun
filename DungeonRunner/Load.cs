@@ -38,7 +38,7 @@ namespace DungeonRunner
                 ChoosenFileEnd = JsonFileEnd;
                 ChoosenPath = JsonPath;
                 MyCharacter =  JsonConvert.DeserializeObject<Character>(File.ReadAllText(ChoosenPath + character.Name1 + ChoosenFileEnd));
-                Console.WriteLine("You are: {0}",MyCharacter);
+                Console.WriteLine("You stats: Name:{0},Age:{1},LP:{2},MP:{3}",character.Name1,character.Age1,character.Lp,character.Mp);
                 
             }
             else
