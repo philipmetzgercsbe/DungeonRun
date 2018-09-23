@@ -76,9 +76,12 @@ namespace DungeonRunner
 
 
         }
-        
-      
-            
+
+
+        public string GetName()
+        {
+            return this.Name;
+        }    
         
     }
 }

@@ -217,6 +217,11 @@ namespace DungeonRunner
 
 
         }
+
+        public string GetClassName()
+        {
+            return CharClass.GetName();
+        }
     }
     
 }
