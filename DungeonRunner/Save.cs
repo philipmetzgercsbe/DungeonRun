@@ -34,6 +34,8 @@ namespace DungeonRunner
 
         public void WriteToJson(Character character)
         {
+            
+          
 
           //Writes  Character to JSON with the Newtonsoft json library
             
@@ -48,7 +50,7 @@ namespace DungeonRunner
                 }
             });;
 
-
+            
             using (FileWriter = new StreamWriter(@"DungeonRunner\\Saves\\Json\\" + character.Name1 + ".json", true))
             {
                 string jsonobject = JsonConvert.SerializeObject(o);

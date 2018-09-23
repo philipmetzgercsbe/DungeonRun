@@ -136,6 +136,10 @@ namespace DungeonRunner
                 //ShowMainMenu();
 
             }
+            else
+            {
+                Console.WriteLine("Go ahead");
+            }
             ShowMainMenu();
 
 
@@ -162,7 +166,7 @@ namespace DungeonRunner
             Console.WriteLine("╠-You enter the Dungeon and encounter a Monster-╣");
             Console.WriteLine("╚=---------------------===---------------------=╝");
             Room = new Room(1, 1);
-            if (Room.isDone() == true)
+            if (Room.isDone())
             {
                 Room = null;
                 IncreaseRoom();
