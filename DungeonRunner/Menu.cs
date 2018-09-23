@@ -13,6 +13,7 @@ namespace DungeonRunner
         public Monster Enemy;
         public Room Room;
         public Character MyCharacter = new Character();
+        private Character character;
         private CharClass Abilities;
         private Item Items;
         public void ShowMainMenu()
@@ -145,6 +146,7 @@ namespace DungeonRunner
             Console.WriteLine("╠-In which file is your character-╣");
             Console.WriteLine("╚=--------------===--------------=╝");
             string CharName = Console.ReadLine();
+            MyCharacter.Name1 = CharName;
             load.CheckIfCharExists(CharName);
             load.LoadCharacter(MyCharacter);
             ShowMainMenu();

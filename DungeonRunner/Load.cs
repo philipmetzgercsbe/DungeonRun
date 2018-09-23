@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -8,8 +9,8 @@ namespace DungeonRunner
     public class Load
     {
         public Character MyCharacter;
-        private static string JsonPath = "DungeonRunner//Saves//Json";
-        private static string TxtPath = "DungeonRunner//Saves//Txt";
+        private static string JsonPath = "DungeonRunner//Saves//Json//";
+        private static string TxtPath = "DungeonRunner//Saves//Txt//";
         private static string JsonFileEnd = ".json";
         private static string TxtFileEnd = ".txt";
         private string ChoosenFileEnd;
@@ -17,15 +18,14 @@ namespace DungeonRunner
         private static string pickchar;
         private int FileEnd;
         private StreamReader sr;
-        
         public Load()
         {
            
         }
 
-        public void ReadStreamWithParams(Character character)
+        /*public void ReadStreamWithParams(Character character)
         {
-            using (StreamReader reader = new StreamReader(ChoosenPath + character + ChoosenFileEnd))
+            using (StreamReader reader = new StreamReader(ChoosenPath + character.Name1+ ChoosenFileEnd))
             {
                 Console.WriteLine("╔=-------------=°=-------------=╗");
                 Console.WriteLine("╠-Here is a list of characters:-╣");
@@ -34,13 +34,15 @@ namespace DungeonRunner
                 do
                 {
 
-                    s = Directory.GetFiles(ChoosenPath);
-                    Console.WriteLine(s);
+                   s = Directory.GetFiles(ChoosenPath+character.Name1+ChoosenFileEnd);
+                   Console.WriteLine(s);
                 } while (s != null);
                
             } 
-        }
-        public void LoadCharacter(Character FileName)
+        }*/
+
+        
+        public void LoadCharacter(Character character)
         {
             Console.WriteLine("╔=----------------------------=°=---------------------------=╗");
             Console.WriteLine("╠-Press [1] to load .json file | Press [2] to load .txt file-╣");
@@ -51,19 +53,50 @@ namespace DungeonRunner
               
                 ChoosenFileEnd = JsonFileEnd;
                 ChoosenPath = JsonPath;
-                MyCharacter = JsonConvert.DeserializeObject<Character>(ChoosenPath + FileName + ChoosenFileEnd);
+                MyCharacter = JsonConvert.DeserializeObject<Character>(ChoosenPath + character.Name1 + ChoosenFileEnd);
                 
             }
             else
             {
                 ChoosenFileEnd = TxtFileEnd;
                 ChoosenPath = TxtPath;
+                ReadStreamWithTxt(character);
 
             }
 
             
         }
-       
+        public void ReadStreamWithTxt(Character character1)
+        {
+            
+           Console.WriteLine("╔=-------------=°=-------------=╗");
+           Console.WriteLine("╠-Here is a list of characters:-╣");
+           Console.WriteLine("╚=-------------===-------------=╝");
+           
+            /*using (StreamReader reader = new StreamReader(TxtPath + character.Name1+TxtFileEnd))
+            {
+                
+                string[] s;
+                do
+                {
+
+                    //s = Directory.GetFiles(TxtPath+character.Name1+TxtFileEnd);
+                    s = File.ReadAllLines(TxtPath + character.Name1+TxtFileEnd);
+                    Console.WriteLine(s);
+                } while (s != null);
+              
+               
+               
+            } */
+            //svar lines = File.ReadLines(
+               // "C:\\Users\\vmadmin\\RiderProjects\\DungeonRun\\DungeonRunner\\bin\\Debug\\DungeonRunner\\Saves\\Txt\\zeta.txt");
+            var lines = File.ReadLines(TxtPath +character1.Name1+TxtFileEnd);//Dr Fehler ligt am character.Name1. D igab stimmt nit überi mit .Name1
+            foreach (var line in lines)
+            {
+                Console.WriteLine(line);
+            }
+        }    
+        
         public void CheckIfCharExists(string FileName)
         {
             
