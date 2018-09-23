@@ -75,6 +75,10 @@ namespace DungeonRunner
 
         }
 
+        public Dictionary<string, Ability> GEtAbilitiesDic()
+        {
+            return this.Abilities;
+        }
 
         public string GetName()
         {
