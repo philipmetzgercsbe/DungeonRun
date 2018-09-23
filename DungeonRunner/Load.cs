@@ -8,7 +8,7 @@ namespace DungeonRunner
 {
     public class Load
     {
-        public Character MyCharacter;
+        public Character MyCharacter = new Character();
         private static string JsonPath = "DungeonRunner//Saves//Json//";
         private static string TxtPath = "DungeonRunner//Saves//Txt//";
         private static string JsonFileEnd = ".json";
@@ -23,23 +23,7 @@ namespace DungeonRunner
            
         }
 
-        /*public void ReadStreamWithParams(Character character)
-        {
-            using (StreamReader reader = new StreamReader(ChoosenPath + character.Name1+ ChoosenFileEnd))
-            {
-                Console.WriteLine("╔=-------------=°=-------------=╗");
-                Console.WriteLine("╠-Here is a list of characters:-╣");
-                Console.WriteLine("╚=-------------===-------------=╝");
-                string[] s;
-                do
-                {
-
-                   s = Directory.GetFiles(ChoosenPath+character.Name1+ChoosenFileEnd);
-                   Console.WriteLine(s);
-                } while (s != null);
-               
-            } 
-        }*/
+       
 
         
         public void LoadCharacter(Character character)
@@ -53,7 +37,7 @@ namespace DungeonRunner
               
                 ChoosenFileEnd = JsonFileEnd;
                 ChoosenPath = JsonPath;
-                MyCharacter = JsonConvert.DeserializeObject<Character>(ChoosenPath + character.Name1 + ChoosenFileEnd);
+                MyCharacter =  JsonConvert.DeserializeObject<Character>(File.ReadAllText(ChoosenPath + character.Name1 + ChoosenFileEnd));
                 Console.WriteLine("You are: {0}",MyCharacter);
                 
             }
@@ -74,24 +58,9 @@ namespace DungeonRunner
            Console.WriteLine("╠-Here are your stats:         -╣");
            Console.WriteLine("╚=-------------===-------------=╝");
            
-            /*using (StreamReader reader = new StreamReader(TxtPath + character.Name1+TxtFileEnd))
-            {
-                
-                string[] s;
-                do
-                {
-
-                    //s = Directory.GetFiles(TxtPath+character.Name1+TxtFileEnd);
-                    s = File.ReadAllLines(TxtPath + character.Name1+TxtFileEnd);
-                    Console.WriteLine(s);
-                } while (s != null);
-              
-               
-               
-            } */
-            //svar lines = File.ReadLines(
-               // "C:\\Users\\vmadmin\\RiderProjects\\DungeonRun\\DungeonRunner\\bin\\Debug\\DungeonRunner\\Saves\\Txt\\zeta.txt");
-            var lines = File.ReadLines(TxtPath +character.Name1+TxtFileEnd);//Dr Fehler ligt am character.Name1. D igab stimmt nit überi mit .Name1
+            
+            var lines = File.ReadLines(TxtPath +character.Name1+TxtFileEnd);//The Error was  character.Name1 it was != .Name1
+                                                                          
             foreach (var line in lines)
             {
                 Console.WriteLine(line);

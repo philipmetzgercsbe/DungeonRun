@@ -175,7 +175,7 @@ namespace DungeonRunner
 
         private void IncreaseRoom()
         {
-            int roomLevel = this.Room.Level1+1;
+            int roomLevel = this.Room.Level1;
             if (Room == null)
             {
                 for (int i = 0; i <= roomLevel; i++)
